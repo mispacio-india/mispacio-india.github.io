@@ -12,7 +12,10 @@
   <!-- Navbar -->
   <header class="navbar">
     <div class="nav-container">
-      <div class="logo">Mispacio</div>
+
+      <div class="logo">
+        <img src="images/logo.png" alt="Mispacio Logo">
+      </div>
 
       <nav class="nav-links">
         <a href="#about">About</a>
@@ -22,6 +25,7 @@
       </nav>
 
       <button id="themeToggle" class="theme-btn">🌙</button>
+
     </div>
   </header>
 
@@ -32,8 +36,8 @@
       <h1 class="gradient-text">Live Greener.</h1>
 
       <p>
-        Premium eco-friendly tote bags designed for daily use —
-        stylish, strong, reusable, and made for conscious living.
+        Mispacio makes premium eco-friendly tote bags designed for daily use —
+        stylish, strong, reusable, and made for a conscious lifestyle.
       </p>
 
       <div class="hero-buttons">
@@ -43,7 +47,7 @@
     </div>
 
     <div class="hero-image fade-in">
-      <img src="https://via.placeholder.com/1200x650" alt="Eco Tote Bag Placeholder">
+      <img src="images/hero.jpg" alt="Mispacio Eco Tote Bags">
     </div>
   </section>
 
@@ -52,9 +56,9 @@
     <div class="content">
       <h2>About Mispacio</h2>
       <p>
-        Mispacio creates everyday tote bags that replace plastic and elevate your lifestyle.
+        Mispacio creates tote bags that replace plastic and elevate your everyday life.
         Whether you’re shopping, traveling, going to college, or carrying essentials —
-        our bags are built to be durable, minimal, and eco-friendly.
+        our bags are designed to feel premium and last long.
       </p>
     </div>
   </section>
@@ -81,6 +85,12 @@
           <p>Branding, gifting, corporate bulk orders and personalized designs.</p>
         </div>
       </div>
+
+      <!-- Product Gallery -->
+      <div class="product-gallery fade-in">
+        <img src="images/tote1.jpg" alt="Mispacio Tote Bag 1">
+        <img src="images/tote2.jpg" alt="Mispacio Tote Bag 2">
+      </div>
     </div>
   </section>
 
@@ -93,22 +103,22 @@
       <div class="features">
         <div class="feature">
           <h3>🌿 Eco-Friendly</h3>
-          <p>Say goodbye to plastic. Our bags are reusable and sustainable.</p>
+          <p>Replace plastic bags with a reusable and sustainable alternative.</p>
         </div>
 
         <div class="feature">
           <h3>💪 Strong & Durable</h3>
-          <p>High-quality stitching and premium material made for daily use.</p>
+          <p>Premium stitching and fabric that lasts long even with daily use.</p>
         </div>
 
         <div class="feature">
-          <h3>✨ Minimal & Stylish</h3>
-          <p>Modern, clean designs that match every outfit and lifestyle.</p>
+          <h3>✨ Stylish & Minimal</h3>
+          <p>Modern design that looks clean, premium, and matches every outfit.</p>
         </div>
 
         <div class="feature">
-          <h3>📦 Bulk Orders Available</h3>
-          <p>Perfect for gifting, events, businesses, and eco-brand campaigns.</p>
+          <h3>📦 Bulk Orders</h3>
+          <p>Ideal for gifting, events, corporate branding and eco campaigns.</p>
         </div>
       </div>
     </div>
@@ -118,7 +128,7 @@
   <section id="contact" class="section gray fade-in">
     <div class="content">
       <h2>Order Your Tote Bag</h2>
-      <p class="subtext">Send us a message and we’ll respond quickly.</p>
+      <p class="subtext">Send your requirements and we’ll respond quickly.</p>
 
       <form class="form">
         <input type="text" placeholder="Your Name" required />
@@ -129,7 +139,7 @@
       </form>
 
       <p class="contact-note">
-        Prefer WhatsApp? Message us directly at <b>+91-XXXXXXXXXX</b>
+        Prefer WhatsApp? Message us at <b>+91-XXXXXXXXXX</b>
       </p>
     </div>
   </section>
@@ -141,7 +151,7 @@
 
   <!-- Smooth Scroll + Animations + Dark Mode -->
   <script>
-    // Smooth scroll for navbar links
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
@@ -167,7 +177,6 @@
     // Dark mode toggle
     const toggleBtn = document.getElementById("themeToggle");
 
-    // Load saved theme
     if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark");
       toggleBtn.textContent = "☀️";

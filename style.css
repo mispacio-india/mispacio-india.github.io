@@ -60,12 +60,13 @@ body.dark .navbar {
   align-items: center;
 }
 
-.logo {
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: -0.5px;
+.logo img {
+  height: 38px;
+  width: auto;
+  display: block;
 }
 
+/* Navbar links */
 .nav-links a {
   text-decoration: none;
   color: var(--text);
@@ -172,6 +173,7 @@ body.dark .navbar {
 .hero-image img {
   width: 100%;
   border-radius: 22px;
+  border: 1px solid var(--border);
   box-shadow: 0px 25px 60px rgba(0,0,0,0.18);
 }
 
@@ -203,7 +205,7 @@ body.dark .navbar {
   color: var(--muted);
 }
 
-/* Gray section */
+/* Gray background */
 .gray {
   background: var(--gray-bg);
 }
@@ -228,6 +230,26 @@ body.dark .navbar {
 
 .card:hover {
   transform: translateY(-6px);
+}
+
+/* Product Gallery */
+.product-gallery {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.product-gallery img {
+  width: 100%;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  box-shadow: 0px 15px 40px rgba(0,0,0,0.10);
+  transition: 0.3s;
+}
+
+.product-gallery img:hover {
+  transform: scale(1.02);
 }
 
 /* Features */

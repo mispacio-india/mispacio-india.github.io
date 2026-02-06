@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mispacio | Business Website</title>
+  <title>Mispacio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <!-- Navigation -->
+  <!-- Navbar -->
   <header class="navbar">
-    <div class="container">
-      <h1 class="logo">Mispacio</h1>
-      <nav>
+    <div class="nav-container">
+      <div class="logo">Mispacio</div>
+
+      <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
@@ -20,73 +22,79 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="container hero-content">
-      <div>
-        <h2>Your Business, Simplified</h2>
-        <p>We help brands grow with clean design, smart strategy, and modern solutions.</p>
-        <a href="#contact" class="btn">Get in Touch</a>
+    <div class="hero-text">
+      <h1>Built for the Future.</h1>
+      <p>
+        Mispacio creates clean, premium digital experiences designed to grow your business.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn primary">Get Started</a>
+        <a href="#services" class="btn secondary">See Services</a>
       </div>
-      <div class="hero-image">
-        <img src="https://via.placeholder.com/500x350" alt="Business placeholder">
-      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://via.placeholder.com/1200x650" alt="Hero Image">
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about" class="section">
-    <div class="container">
-      <h2>About Us</h2>
+    <div class="content">
+      <h2>Simple. Modern. Powerful.</h2>
       <p>
-        Mispacio is a modern business focused on delivering high-quality solutions
-        that help companies stand out. We believe in simplicity, clarity, and results.
+        At Mispacio, we believe design should feel effortless.
+        We help brands build trust, improve their online presence, and stand out with a premium look.
       </p>
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section id="services" class="section gray">
-    <div class="container">
-      <h2>Our Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <img src="https://via.placeholder.com/100" alt="Service 1">
-          <h3>Consulting</h3>
-          <p>Strategic guidance to help your business move forward with confidence.</p>
+    <div class="content">
+      <h2>Services</h2>
+      <p class="subtext">Everything you need to launch, scale, and succeed.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Branding</h3>
+          <p>We craft brand identity that feels premium and unforgettable.</p>
         </div>
-        <div class="service-card">
-          <img src="https://via.placeholder.com/100" alt="Service 2">
-          <h3>Design</h3>
-          <p>Clean, modern designs that reflect your brand and attract customers.</p>
+
+        <div class="card">
+          <h3>Web Design</h3>
+          <p>Minimal layouts inspired by Apple-style design standards.</p>
         </div>
-        <div class="service-card">
-          <img src="https://via.placeholder.com/100" alt="Service 3">
+
+        <div class="card">
           <h3>Development</h3>
-          <p>Reliable and scalable solutions built with modern technologies.</p>
+          <p>Fast, responsive, and SEO-ready websites built for performance.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <p>Have a project in mind? Let’s talk.</p>
+    <div class="content">
+      <h2>Let’s Build Something Great.</h2>
+      <p class="subtext">Contact us and we’ll respond within 24 hours.</p>
 
-      <form class="contact-form">
+      <form class="form">
         <input type="text" placeholder="Your Name" required />
         <input type="email" placeholder="Your Email" required />
         <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
+        <button type="submit" class="btn primary">Send Message</button>
       </form>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2026 Mispacio. All rights reserved.</p>
+    <p>© 2026 Mispacio. Designed with simplicity.</p>
   </footer>
 
 </body>

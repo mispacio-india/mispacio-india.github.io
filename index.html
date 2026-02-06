@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mispacio</title>
+  <title>Mispacio | Eco-Friendly Tote Bags</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -16,86 +16,175 @@
 
       <nav class="nav-links">
         <a href="#about">About</a>
-        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#why">Why Us</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <button id="themeToggle" class="theme-btn">🌙</button>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero fade-in">
     <div class="hero-text">
-      <h1>Built for the Future.</h1>
+      <h1>Carry Better.</h1>
+      <h1 class="gradient-text">Live Greener.</h1>
+
       <p>
-        Mispacio creates clean, premium digital experiences designed to grow your business.
+        Premium eco-friendly tote bags designed for daily use —
+        stylish, strong, reusable, and made for conscious living.
       </p>
 
       <div class="hero-buttons">
-        <a href="#contact" class="btn primary">Get Started</a>
-        <a href="#services" class="btn secondary">See Services</a>
+        <a href="#products" class="btn primary">Explore Tote Bags</a>
+        <a href="#contact" class="btn secondary">Order Now</a>
       </div>
     </div>
 
-    <div class="hero-image">
-      <img src="https://via.placeholder.com/1200x650" alt="Hero Image">
+    <div class="hero-image fade-in">
+      <img src="https://via.placeholder.com/1200x650" alt="Eco Tote Bag Placeholder">
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="section">
+  <section id="about" class="section fade-in">
     <div class="content">
-      <h2>Simple. Modern. Powerful.</h2>
+      <h2>About Mispacio</h2>
       <p>
-        At Mispacio, we believe design should feel effortless.
-        We help brands build trust, improve their online presence, and stand out with a premium look.
+        Mispacio creates everyday tote bags that replace plastic and elevate your lifestyle.
+        Whether you’re shopping, traveling, going to college, or carrying essentials —
+        our bags are built to be durable, minimal, and eco-friendly.
       </p>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="section gray">
+  <!-- Products -->
+  <section id="products" class="section gray fade-in">
     <div class="content">
-      <h2>Services</h2>
-      <p class="subtext">Everything you need to launch, scale, and succeed.</p>
+      <h2>Our Tote Bags</h2>
+      <p class="subtext">Minimal design. Maximum utility.</p>
 
       <div class="cards">
         <div class="card">
-          <h3>Branding</h3>
-          <p>We craft brand identity that feels premium and unforgettable.</p>
+          <h3>Daily Essentials Tote</h3>
+          <p>Perfect for groceries, books, office items, and everyday carry.</p>
         </div>
 
         <div class="card">
-          <h3>Web Design</h3>
-          <p>Minimal layouts inspired by Apple-style design standards.</p>
+          <h3>Premium Canvas Tote</h3>
+          <p>Thick fabric, strong stitching, long-lasting quality and comfort.</p>
         </div>
 
         <div class="card">
-          <h3>Development</h3>
-          <p>Fast, responsive, and SEO-ready websites built for performance.</p>
+          <h3>Custom Printed Tote</h3>
+          <p>Branding, gifting, corporate bulk orders and personalized designs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why" class="section fade-in">
+    <div class="content">
+      <h2>Why Choose Mispacio?</h2>
+      <p class="subtext">Designed like a lifestyle product. Built like a utility product.</p>
+
+      <div class="features">
+        <div class="feature">
+          <h3>🌿 Eco-Friendly</h3>
+          <p>Say goodbye to plastic. Our bags are reusable and sustainable.</p>
+        </div>
+
+        <div class="feature">
+          <h3>💪 Strong & Durable</h3>
+          <p>High-quality stitching and premium material made for daily use.</p>
+        </div>
+
+        <div class="feature">
+          <h3>✨ Minimal & Stylish</h3>
+          <p>Modern, clean designs that match every outfit and lifestyle.</p>
+        </div>
+
+        <div class="feature">
+          <h3>📦 Bulk Orders Available</h3>
+          <p>Perfect for gifting, events, businesses, and eco-brand campaigns.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section">
+  <section id="contact" class="section gray fade-in">
     <div class="content">
-      <h2>Let’s Build Something Great.</h2>
-      <p class="subtext">Contact us and we’ll respond within 24 hours.</p>
+      <h2>Order Your Tote Bag</h2>
+      <p class="subtext">Send us a message and we’ll respond quickly.</p>
 
       <form class="form">
         <input type="text" placeholder="Your Name" required />
         <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <input type="text" placeholder="Phone Number (Optional)" />
+        <textarea placeholder="Message (Size, quantity, custom print, etc.)" rows="5" required></textarea>
         <button type="submit" class="btn primary">Send Message</button>
       </form>
+
+      <p class="contact-note">
+        Prefer WhatsApp? Message us directly at <b>+91-XXXXXXXXXX</b>
+      </p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>© 2026 Mispacio. Designed with simplicity.</p>
+  <footer class="footer fade-in">
+    <p>© 2026 Mispacio. Eco-friendly tote bags made for everyday life.</p>
   </footer>
+
+  <!-- Smooth Scroll + Animations + Dark Mode -->
+  <script>
+    // Smooth scroll for navbar links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+
+    // Fade-in animation on scroll
+    const fadeElements = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Dark mode toggle
+    const toggleBtn = document.getElementById("themeToggle");
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      toggleBtn.textContent = "☀️";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+      }
+    });
+  </script>
 
 </body>
 </html>

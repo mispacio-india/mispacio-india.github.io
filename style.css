@@ -60,8 +60,9 @@ body.dark .navbar {
   align-items: center;
 }
 
+/* Logo */
 .logo img {
-  height: 38px;
+  height: 32px;
   width: auto;
   display: block;
 }
@@ -101,12 +102,12 @@ body.dark .navbar {
 .hero {
   max-width: 1100px;
   margin: auto;
-  padding: 5rem 20px 3rem;
+  padding: 3.5rem 20px 2rem;
   text-align: center;
 }
 
 .hero-text h1 {
-  font-size: 3.4rem;
+  font-size: 3.2rem;
   font-weight: 700;
   letter-spacing: -1.2px;
   line-height: 1.1;
@@ -120,9 +121,9 @@ body.dark .navbar {
 
 .hero-text p {
   margin-top: 1.2rem;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--muted);
-  max-width: 700px;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -167,11 +168,13 @@ body.dark .navbar {
 
 /* Hero Image */
 .hero-image {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .hero-image img {
   width: 100%;
+  max-height: 520px;
+  object-fit: cover;
   border-radius: 22px;
   border: 1px solid var(--border);
   box-shadow: 0px 25px 60px rgba(0,0,0,0.18);
@@ -189,7 +192,7 @@ body.dark .navbar {
 }
 
 .section h2 {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: 700;
   letter-spacing: -0.8px;
 }
@@ -242,6 +245,8 @@ body.dark .navbar {
 
 .product-gallery img {
   width: 100%;
+  height: 360px;
+  object-fit: cover;
   border-radius: 22px;
   border: 1px solid var(--border);
   box-shadow: 0px 15px 40px rgba(0,0,0,0.10);
@@ -332,7 +337,7 @@ body.dark .navbar {
 /* Mobile */
 @media(max-width: 650px) {
   .hero-text h1 {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
   }
 
   .section h2 {
@@ -341,5 +346,9 @@ body.dark .navbar {
 
   .nav-links {
     display: none;
+  }
+
+  .product-gallery img {
+    height: 280px;
   }
 }

@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily Essentials Tote | Mispacio</title>
+
+  <title>Daily Tote Bags | Mispacio</title>
+
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 
 <body>
 
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="nav-container">
       <div class="logo">
@@ -17,34 +20,144 @@
       </div>
 
       <nav class="nav-links">
-        <a href="index.html#products">Products</a>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
         <a href="index.html#contact">Contact</a>
       </nav>
+
+      <button id="themeToggle" class="theme-btn">🌙</button>
     </div>
   </header>
 
+  <!-- PAGE HEADING -->
   <section class="section fade-in show">
     <div class="content">
-      <h2>Daily Essentials Tote</h2>
-      <p class="subtext">Perfect for groceries, books, and everyday carry.</p>
-
-      <div class="product-gallery">
-        <img src="images/daily1.png" alt="Daily Tote Bag 1">
-        <img src="images/daily2.png" alt="Daily Tote Bag 2">
-      </div>
-
-      <p class="price" style="margin-top: 30px;">₹199</p>
-
-      <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Mispacio,%20I%20want%20to%20buy%20Daily%20Essentials%20Tote"
-         class="btn primary" target="_blank">
-        Buy Now on WhatsApp
-      </a>
-
-      <br><br>
-
-      <a href="index.html#products" class="btn secondary">← Back to Products</a>
+      <h2>Daily Essentials Tote Bags</h2>
+      <p class="subtext">
+        Lightweight, durable, reusable totes designed for daily use.
+      </p>
     </div>
   </section>
+
+  <!-- PRODUCT GRID -->
+  <section class="apple-section">
+    <div class="apple-grid">
+
+      <!-- PRODUCT 1 -->
+      <div class="apple-card">
+        <div class="apple-img-wrap">
+          <img src="images/daily1.png" alt="Daily Tote 1">
+        </div>
+
+        <div class="apple-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <h3>Daily Tote Classic</h3>
+        <p class="apple-desc">
+          Perfect for groceries, books, and daily essentials.
+        </p>
+
+        <p class="apple-price">From ₹199</p>
+
+        <div class="apple-buttons">
+          <a href="daily-tote-classic.html" class="btn primary">Learn more</a>
+          <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Mispacio,%20I%20want%20to%20buy%20Daily%20Tote%20Classic"
+             class="buy-link" target="_blank">
+            Buy ›
+          </a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 2 -->
+      <div class="apple-card">
+        <div class="apple-img-wrap">
+          <img src="images/daily2.png" alt="Daily Tote 2">
+        </div>
+
+        <div class="apple-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <h3>Daily Tote Large</h3>
+        <p class="apple-desc">
+          Extra spacious tote for travel, shopping, and storage.
+        </p>
+
+        <p class="apple-price">From ₹249</p>
+
+        <div class="apple-buttons">
+          <a href="daily-tote-large.html" class="btn primary">Learn more</a>
+          <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Mispacio,%20I%20want%20to%20buy%20Daily%20Tote%20Large"
+             class="buy-link" target="_blank">
+            Buy ›
+          </a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 3 -->
+      <div class="apple-card">
+        <div class="apple-img-wrap">
+          <img src="images/tote1.png" alt="Daily Tote 3">
+        </div>
+
+        <div class="apple-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <h3>Daily Tote Minimal</h3>
+        <p class="apple-desc">
+          Clean minimal tote bag, designed for comfort and style.
+        </p>
+
+        <p class="apple-price">From ₹299</p>
+
+        <div class="apple-buttons">
+          <a href="daily-tote-minimal.html" class="btn primary">Learn more</a>
+          <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Mispacio,%20I%20want%20to%20buy%20Daily%20Tote%20Minimal"
+             class="buy-link" target="_blank">
+            Buy ›
+          </a>
+        </div>
+      </div>
+
+      <!-- ADD MORE PRODUCTS LIKE THIS -->
+      <!-- COPY PRODUCT BLOCK ABOVE AND CHANGE IMAGE + NAME + PRICE -->
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Mispacio. Eco-friendly tote bags made for everyday life.</p>
+  </footer>
+
+  <!-- DARK MODE SCRIPT -->
+  <script>
+    const toggleBtn = document.getElementById("themeToggle");
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      toggleBtn.textContent = "☀️";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+      }
+    });
+  </script>
 
 </body>
 </html>

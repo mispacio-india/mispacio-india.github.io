@@ -36,15 +36,15 @@
 
       <!-- PRODUCT 1 -->
       <div class="apple-product">
-        <div class="apple-img-wrap">
-          <img src="images/daily1.png" class="product-img" alt="Daily Tote Bag 1">
-        </div>
+<div class="apple-img-wrap">
+  <img src="images/daily1-1.png" class="product-img" id="product1-img" alt="Daily Tote Bag">
+</div>
 
-        <div class="apple-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
+<div class="apple-dots">
+  <span class="dot active" onclick="changeImage('product1-img','images/daily1-1.png', this)"></span>
+  <span class="dot" onclick="changeImage('product1-img','images/daily1-2.png', this)"></span>
+  <span class="dot" onclick="changeImage('product1-img','images/daily1-3.png', this)"></span>
+</div>
 
         <h3>Daily Tote Classic</h3>
         <p class="apple-desc">
@@ -111,6 +111,17 @@
 
     </div>
   </section>
+<script>
+  function changeImage(imgId, newSrc, dotElement) {
+    const img = document.getElementById(imgId);
+    img.src = newSrc;
+
+    const dots = dotElement.parentElement.querySelectorAll(".dot");
+    dots.forEach(dot => dot.classList.remove("active"));
+    dotElement.classList.add("active");
+  }
+</script>
 
 </body>
 </html>
+

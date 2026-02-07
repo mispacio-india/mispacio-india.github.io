@@ -1,63 +1,83 @@
-/* ===============================
-   MISPACIO FINAL CSS (APPLE STYLE)
-================================== */
+/* ===========================
+   MISPACIO FINAL STYLE.CSS
+   Apple-like + Dark Mode + Animations
+   =========================== */
 
 :root {
   --bg: #ffffff;
   --text: #111111;
   --muted: #555555;
-  --gray-bg: #f5f5f7;
   --border: rgba(0, 0, 0, 0.08);
-  --btn-blue: #0071e3;
-  --btn-blue-hover: #005bb5;
+  --card-bg: #ffffff;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  --accent: #0071e3;
+  --accent-hover: #005bb5;
+  --btn-gray: #f5f5f7;
+  --hero-bg: #f5f5f7;
 }
 
-body.dark {
+.dark {
   --bg: #0b0b0f;
-  --text: #ffffff;
-  --muted: #aaaaaa;
-  --gray-bg: #141418;
-  --border: rgba(255, 255, 255, 0.08);
-  --btn-blue: #0a84ff;
-  --btn-blue-hover: #0068d6;
+  --text: #f5f5f7;
+  --muted: #b0b0b5;
+  --border: rgba(255, 255, 255, 0.12);
+  --card-bg: #111118;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  --accent: #2997ff;
+  --accent-hover: #0071e3;
+  --btn-gray: rgba(255, 255, 255, 0.08);
+  --hero-bg: #0f0f14;
 }
 
-/* Base Reset */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Navbar */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===========================
+   Navbar
+   =========================== */
 .navbar {
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 999;
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
 }
 
-body.dark .navbar {
-  background: rgba(15, 15, 18, 0.75);
+.dark .navbar {
+  background: rgba(0, 0, 0, 0.65);
 }
 
 .nav-container {
   max-width: 1200px;
   margin: auto;
-  padding: 18px 25px;
+  padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -71,259 +91,45 @@ body.dark .navbar {
 .nav-links {
   display: flex;
   gap: 30px;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 1rem;
-  transition: 0.3s;
+  opacity: 0.85;
+  transition: 0.2s ease;
 }
 
 .nav-links a:hover {
-  opacity: 0.7;
+  opacity: 1;
+  color: var(--accent);
 }
 
+/* Dark Mode Toggle Button */
 .theme-btn {
-  border: none;
-  background: var(--gray-bg);
-  padding: 10px 14px;
-  border-radius: 50px;
+  width: 55px;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid var(--border);
+  background: var(--btn-gray);
   cursor: pointer;
   font-size: 18px;
-  border: 1px solid var(--border);
-  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s ease;
 }
 
 .theme-btn:hover {
   transform: scale(1.05);
 }
 
-/* Sections */
-.section {
-  padding: 80px 25px;
-  text-align: center;
-}
-
-.content {
-  max-width: 900px;
-  margin: auto;
-}
-
-h1, h2 {
-  font-size: 3.2rem;
-  font-weight: 900;
-  margin-bottom: 20px;
-}
-
-.subtext {
-  font-size: 1.2rem;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-/* Buttons */
-.btn {
-  padding: 14px 26px;
-  border-radius: 40px;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.btn.primary {
-  background: var(--btn-blue);
-  color: white;
-}
-
-.btn.primary:hover {
-  background: var(--btn-blue-hover);
-  transform: scale(1.03);
-}
-
-.btn.secondary {
-  background: var(--gray-bg);
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-
-.btn.secondary:hover {
-  transform: scale(1.03);
-}
-
-/* Footer */
-.footer {
-  padding: 40px 25px;
-  text-align: center;
-  border-top: 1px solid var(--border);
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-
-/* Animations */
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 1.2s ease forwards;
-}
-
-.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===============================
-   PRODUCT PAGES FIX
-================================== */
-.product-page-body {
-  background: var(--bg) !important;
-}
-
-/* ===============================
-   APPLE STYLE PRODUCT GRID
-================================== */
-.apple-section {
-  padding: 0 25px 90px;
-}
-
-.apple-grid {
-  max-width: 1300px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 40px;
-}
-
-.apple-card {
-  background: var(--gray-bg);
-  border-radius: 35px;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  text-align: center;
-  transition: 0.35s ease;
-}
-
-.apple-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0px 25px 70px rgba(0, 0, 0, 0.18);
-}
-
-.apple-img-wrap {
-  height: 420px;
-  background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-}
-
-body.dark .apple-img-wrap {
-  background: #0f0f12;
-}
-
-.apple-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.apple-dots {
-  margin-top: 18px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #cfcfcf;
-}
-
-.dot.active {
-  background: #111;
-}
-
-body.dark .dot.active {
-  background: white;
-}
-
-.apple-card h3 {
-  font-size: 2.1rem;
-  font-weight: 900;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.apple-desc {
-  font-size: 1.1rem;
-  color: var(--muted);
-  line-height: 1.7;
-  padding: 0 25px;
-  margin-bottom: 20px;
-}
-
-.apple-price {
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 25px;
-}
-
-.apple-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  margin-bottom: 35px;
-  flex-wrap: wrap;
-}
-
-.buy-link {
-  font-size: 1.2rem;
-  font-weight: 800;
-  text-decoration: none;
-  color: var(--btn-blue);
-}
-
-.buy-link:hover {
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  h1, h2 {
-    font-size: 2.3rem;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .apple-img-wrap {
-    height: 320px;
-  }
-}
-
-/* FIX HERO IMAGE SIZE (HOMEPAGE) */
+/* ===========================
+   Hero Section
+   =========================== */
 .hero {
-  padding: 80px 25px 40px;
-  background: var(--bg);
+  padding: 90px 20px 60px;
+  background: var(--hero-bg);
 }
 
 .hero-container {
@@ -331,30 +137,311 @@ body.dark .dot.active {
   margin: auto;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
+  gap: 50px;
   align-items: center;
 }
 
-.hero-image img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: auto;
-  border-radius: 30px;
+.hero-text h1 {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
 }
 
-/* MOBILE HERO FIX */
-@media (max-width: 900px) {
+.hero-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 550px;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  padding: 14px 28px;
+  background: var(--accent);
+  color: white;
+  border-radius: 40px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  padding: 14px 28px;
+  background: var(--btn-gray);
+  color: var(--text);
+  border-radius: 40px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* HERO IMAGE FIX */
+.hero-image img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: auto;
+  object-fit: contain;
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 1s ease forwards;
+}
+
+/* ===========================
+   Section Styling
+   =========================== */
+.section {
+  padding: 90px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+/* ===========================
+   Product Cards (Homepage)
+   =========================== */
+.cards {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 25px;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-images {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.card-images img {
+  width: 50%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+}
+
+.card h3 {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.buy-btn {
+  padding: 12px 22px;
+  border-radius: 40px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.buy-btn:hover {
+  background: var(--accent-hover);
+}
+
+.learn-btn {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.learn-btn:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+footer {
+  padding: 40px 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ===========================
+   Product Pages (Daily/Premium/Custom)
+   =========================== */
+.product-page-body {
+  background: var(--bg);
+}
+
+.product-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  padding: 70px 20px;
+}
+
+.product-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-8px);
+}
+
+.product-img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+.product-content {
+  padding: 25px;
+}
+
+.product-content h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.product-content p {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.product-actions .btn-primary {
+  padding: 12px 22px;
+}
+
+.product-actions .btn-secondary {
+  padding: 12px 22px;
+}
+
+/* ===========================
+   Animations
+   =========================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 1000px) {
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .hero-image img {
-    max-width: 320px;
+  .hero-text h1 {
+    font-size: 55px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none;
   }
 }
-
-

@@ -242,6 +242,13 @@ body.dark .navbar {
   transform: translateY(-8px);
 }
 
+/* Make Card Clickable */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 /* Card Gallery */
 .card-gallery {
   display: flex;

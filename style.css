@@ -14,7 +14,7 @@
 body.dark {
   --bg: #0b0b0f;
   --text: #ffffff;
-  --muted: rgba(255, 255, 255, 0.65);
+  --muted: rgba(255, 255,  255, 0.65);
   --gray-bg: #141418;
   --card-bg: #1b1b20;
   --border: rgba(255, 255, 255, 0.08);
@@ -37,7 +37,9 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Navbar */
+/* ============================= */
+/* NAVBAR */
+/* ============================= */
 .navbar {
   position: sticky;
   top: 0;
@@ -100,7 +102,9 @@ body.dark .navbar {
   transform: scale(1.08);
 }
 
-/* Hero */
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
 .hero {
   max-width: 1200px;
   margin: auto;
@@ -182,7 +186,9 @@ body.dark .navbar {
   box-shadow: 0px 30px 70px rgba(0,0,0,0.18);
 }
 
-/* Sections */
+/* ============================= */
+/* SECTIONS */
+/* ============================= */
 .section {
   padding: 6rem 25px;
   text-align: center;
@@ -215,7 +221,9 @@ body.dark .navbar {
   background: var(--gray-bg);
 }
 
-/* Cards */
+/* ============================= */
+/* CARDS */
+/* ============================= */
 .cards {
   margin-top: 3.5rem;
   display: grid;
@@ -285,7 +293,9 @@ body.dark .navbar {
   width: 100%;
 }
 
-/* Features */
+/* ============================= */
+/* FEATURES */
+/* ============================= */
 .features {
   margin-top: 3.5rem;
   display: grid;
@@ -311,7 +321,9 @@ body.dark .navbar {
   transform: translateY(-8px);
 }
 
-/* Contact Form */
+/* ============================= */
+/* CONTACT FORM */
+/* ============================= */
 .form {
   margin-top: 3rem;
   display: flex;
@@ -346,7 +358,9 @@ body.dark .navbar {
   color: var(--muted);
 }
 
-/* Footer */
+/* ============================= */
+/* FOOTER */
+/* ============================= */
 .footer {
   border-top: 1px solid var(--border);
   padding: 2.5rem 25px;
@@ -355,7 +369,9 @@ body.dark .navbar {
   color: var(--muted);
 }
 
-/* Fade-in animation */
+/* ============================= */
+/* FADE IN ANIMATION */
+/* ============================= */
 .fade-in {
   opacity: 0;
   transform: translateY(25px);
@@ -367,47 +383,15 @@ body.dark .navbar {
   transform: translateY(0);
 }
 
-/* Mobile */
-@media(max-width: 650px) {
-  .hero-text h1 {
-    font-size: 2.7rem;
-  }
-
-  .section h2 {
-    font-size: 2.3rem;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .card-gallery img {
-    height: 140px;
-  }
-}
-/* FIX DAILY PAGE IMAGE FULL SCREEN ISSUE */
-.apple-img-wrap {
-  width: 100%;
-  height: 320px;
-  overflow: hidden;
-  border-radius: 28px;
-}
-
-.product-img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  display: block;
-}
 /* ============================= */
 /* APPLE STYLE PRODUCT PAGE */
 /* ============================= */
-
 .product-page-body {
   background: #f5f5f7;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
+/* PAGE HEADER */
 .page-header {
   text-align: center;
   padding: 70px 20px 30px;
@@ -463,6 +447,7 @@ body.dark .navbar {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: 0.3s ease;
 }
 
 /* DOTS */
@@ -478,6 +463,8 @@ body.dark .navbar {
   height: 10px;
   border-radius: 50%;
   background: #cfcfcf;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .dot.active {
@@ -543,14 +530,16 @@ body.dark .navbar {
   text-decoration: underline;
 }
 
+/* ============================= */
 /* RESPONSIVE */
-@media (max-width: 1100px) {
+/* ============================= */
+@media(max-width: 1100px) {
   .apple-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 750px) {
+@media(max-width: 750px) {
   .apple-grid {
     grid-template-columns: 1fr;
   }
@@ -564,8 +553,20 @@ body.dark .navbar {
   }
 }
 
+@media(max-width: 650px) {
+  .hero-text h1 {
+    font-size: 2.7rem;
+  }
 
+  .section h2 {
+    font-size: 2.3rem;
+  }
 
+  .nav-links {
+    display: none;
+  }
 
-
-
+  .card-gallery img {
+    height: 140px;
+  }
+}

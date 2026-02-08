@@ -73,6 +73,19 @@
     </div>
 
   </section>
+  <!-- FULLSCREEN IMAGE VIEWER -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal" onclick="closeModal()">✕</span>
+
+  <div class="modal-slider-wrap">
+    <div class="modal-slider" id="modalSlider">
+      <img src="../images/daily1-1.png" alt="Daily Tote">
+      <img src="../images/daily1-2.png" alt="Daily Tote">
+      <img src="../images/daily1-3.png" alt="Daily Tote">
+    </div>
+  </div>
+</div>
+
 
   <!-- SCRIPT -->
   <script>
@@ -139,9 +152,10 @@
   // -----------------------------
   // CLICK IMAGE TO OPEN MODAL
   // -----------------------------
-  document.querySelector(".apple-img-wrap").addEventListener("click", () => {
+document.querySelector(".apple-img-wrap").addEventListener("click", () => {
   openModal(currentIndex[1]);
 });
+
 
   // -----------------------------
   // MODAL IMAGE CLICK ZOOM
@@ -188,13 +202,31 @@
   // -----------------------------
   // SWIPE FEATURE (MODAL SLIDER)
   // -----------------------------
-  const modalWrap = document.querySelector(".modal-slider-wrap");
-  let modalStartX = 0;
-  let modalEndX = 0;
+// SWIPE FEATURE (MODAL SLIDER)
+const modalWrap = document.querySelector(".modal-slider-wrap");
+let modalStartX = 0;
+let modalEndX = 0;
 
+if (modalWrap) {
   modalWrap.addEventListener("touchstart", (e) => {
     modalStartX = e.touches[0].clientX;
   });
+
+  modalWrap.addEventListener("touchend", (e) => {
+    modalEndX = e.changedTouches[0].clientX;
+
+    let diff = modalStartX - modalEndX;
+
+    if (diff > 50 && modalIndex < 2) {
+      modalIndex++;
+      updateModalSlider();
+    } else if (diff < -50 && modalIndex > 0) {
+      modalIndex--;
+      updateModalSlider();
+    }
+  });
+}
+
 
   modalWrap.addEventListener("touchend", (e) => {
     modalEndX = e.changedTouches[0].clientX;
@@ -219,18 +251,6 @@
   });
 </script>
 
-<!-- FULLSCREEN IMAGE VIEWER -->
-<div id="imageModal" class="image-modal">
-  <span class="close-modal" onclick="closeModal()">✕</span>
-
-  <div class="modal-slider-wrap">
-    <div class="modal-slider" id="modalSlider">
-      <img src="../images/daily1-1.png" alt="Daily Tote">
-      <img src="../images/daily1-2.png" alt="Daily Tote">
-      <img src="../images/daily1-3.png" alt="Daily Tote">
-    </div>
-  </div>
-</div>
 
 </body>
 </html>

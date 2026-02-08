@@ -150,9 +150,38 @@
     // -----------------------------
     // CLICK IMAGE TO OPEN MODAL
     // -----------------------------
-    document.querySelector(".apple-img-wrap").addEventListener("click", () => {
+    const imageWrap = document.querySelector(".apple-img-wrap");
+
+let tapStartX = 0;
+let tapStartY = 0;
+
+if (imageWrap) {
+
+  imageWrap.addEventListener("touchstart", (e) => {
+    tapStartX = e.touches[0].clientX;
+    tapStartY = e.touches[0].clientY;
+  });
+
+  imageWrap.addEventListener("touchend", (e) => {
+    let tapEndX = e.changedTouches[0].clientX;
+    let tapEndY = e.changedTouches[0].clientY;
+
+    let diffX = Math.abs(tapStartX - tapEndX);
+    let diffY = Math.abs(tapStartY - tapEndY);
+
+    // If finger moved very little = it's a tap
+    if (diffX < 10 && diffY < 10) {
       openModal(currentIndex[1]);
-    });
+    }
+  });
+
+  // Desktop click
+  imageWrap.addEventListener("click", () => {
+    openModal(currentIndex[1]);
+  });
+
+}
+
 
     // -----------------------------
     // MODAL IMAGE CLICK ZOOM

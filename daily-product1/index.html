@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mispacio | Daily Tote Classic</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 
 <body class="product-page-body">
@@ -13,7 +13,7 @@
   <header class="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="Mispacio Logo" />
+        <img src="../images/logo.png" alt="Mispacio Logo" />
       </a>
 
       <nav class="nav-links">
@@ -32,9 +32,9 @@
       <!-- IMAGE SLIDER -->
       <div class="apple-img-wrap swipe-area" data-product="1">
         <div class="slider" id="slider1">
-          <img src="images/daily1-1.png" alt="Daily Tote Classic">
-          <img src="images/daily1-2.png" alt="Daily Tote Classic">
-          <img src="images/daily1-3.png" alt="Daily Tote Classic">
+          <img src="../images/daily1-1.png" alt="Daily Tote Classic">
+          <img src="../images/daily1-2.png" alt="Daily Tote Classic">
+          <img src="../images/daily1-3.png" alt="Daily Tote Classic">
         </div>
       </div>
 
@@ -124,6 +124,18 @@
       });
     });
   </script>
+<!-- FULLSCREEN IMAGE VIEWER -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal" onclick="closeModal()">✕</span>
+
+  <div class="modal-slider-wrap">
+    <div class="modal-slider" id="modalSlider">
+      <img src="images/daily1-1.png" alt="Daily Tote">
+      <img src="images/daily1-2.png" alt="Daily Tote">
+      <img src="images/daily1-3.png" alt="Daily Tote">
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

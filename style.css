@@ -1341,6 +1341,161 @@ body.dark .navbar {
   cursor: pointer;
 }
 
+/* ============================= */
+/* PRODUCT DETAIL PAGE */
+/* ============================= */
+
+.product-detail-page {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.product-detail-card {
+  width: 100%;
+  max-width: 750px;
+  background: white;
+  padding: 50px;
+  border-radius: 35px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+.detail-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-top: 25px;
+}
+
+.detail-subtitle {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.detail-price {
+  margin-top: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111;
+}
+
+.detail-specs {
+  margin-top: 35px;
+  text-align: left;
+  background: #f5f5f7;
+  padding: 25px;
+  border-radius: 25px;
+}
+
+.detail-specs h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.detail-specs ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detail-specs li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.detail-buy-btn {
+  display: inline-block;
+  margin-top: 35px;
+  background: #0071e3;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.detail-buy-btn:hover {
+  background: #005bb5;
+}
+
+
+/* ============================= */
+/* FULLSCREEN IMAGE MODAL */
+/* ============================= */
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.image-modal.active {
+  display: flex;
+}
+
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+  font-weight: bold;
+}
+
+.modal-slider-wrap {
+  width: 92%;
+  height: 85%;
+  overflow: hidden;
+  border-radius: 25px;
+  background: black;
+}
+
+.modal-slider {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.modal-slider img {
+  width: 100%;
+  height: 100%;
+  flex: 0 0 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+
+/* Make main image clickable */
+.apple-img-wrap {
+  cursor: pointer;
+}
+
+
+/* Responsive */
+@media (max-width: 650px) {
+  .product-detail-card {
+    padding: 30px 20px;
+  }
+
+  .detail-title {
+    font-size: 32px;
+  }
+}
+
 
 
 

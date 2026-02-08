@@ -14,7 +14,7 @@
 body.dark {
   --bg: #0b0b0f;
   --text: #ffffff;
-  --muted: rgba(255, 255,  255, 0.65);
+  --muted: rgba(255, 255, 255, 0.65);
   --gray-bg: #141418;
   --card-bg: #1b1b20;
   --border: rgba(255, 255, 255, 0.08);
@@ -83,23 +83,6 @@ body.dark .navbar {
 
 .nav-links a:hover {
   opacity: 1;
-}
-
-/* Theme button */
-.theme-btn {
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text);
-  padding: 10px 15px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: 0.3s;
-  margin-left: 20px;
-}
-
-.theme-btn:hover {
-  transform: scale(1.08);
 }
 
 /* ============================= */
@@ -172,217 +155,6 @@ body.dark .navbar {
   filter: brightness(0.95);
 }
 
-/* Hero Image */
-.hero-image {
-  margin-top: 3.5rem;
-}
-
-.hero-image img {
-  width: 100%;
-  max-height: 620px;
-  object-fit: cover;
-  border-radius: 28px;
-  border: 1px solid var(--border);
-  box-shadow: 0px 30px 70px rgba(0,0,0,0.18);
-}
-
-/* ============================= */
-/* SECTIONS */
-/* ============================= */
-.section {
-  padding: 6rem 25px;
-  text-align: center;
-}
-
-.content {
-  max-width: 1000px;
-  margin: auto;
-}
-
-.section h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-}
-
-.section p {
-  margin-top: 1.5rem;
-  font-size: 1.2rem;
-  color: var(--muted);
-}
-
-.subtext {
-  font-size: 1.2rem;
-  color: var(--muted);
-}
-
-/* Gray background */
-.gray {
-  background: var(--gray-bg);
-}
-
-/* ============================= */
-/* CARDS */
-/* ============================= */
-.cards {
-  margin-top: 3.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.card {
-  background: var(--card-bg);
-  padding: 2.5rem;
-  border-radius: 26px;
-  text-align: left;
-  border: 1px solid var(--border);
-  box-shadow: 0px 14px 35px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-/* Make Card Clickable */
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-/* Card Gallery */
-.card-gallery {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.card-gallery img {
-  width: 50%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 18px;
-  border: 1px solid var(--border);
-  transition: 0.3s;
-}
-
-.card-gallery img:hover {
-  transform: scale(1.06);
-}
-
-/* Price */
-.price {
-  font-size: 1.3rem;
-  font-weight: 800;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  color: var(--text);
-}
-
-/* Buy Button */
-.buy-btn {
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-}
-
-/* ============================= */
-/* FEATURES */
-/* ============================= */
-.features {
-  margin-top: 3.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-}
-
-.feature {
-  background: var(--card-bg);
-  padding: 2.4rem;
-  border-radius: 26px;
-  border: 1px solid var(--border);
-  text-align: left;
-  transition: 0.3s;
-}
-
-.feature h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-}
-
-.feature:hover {
-  transform: translateY(-8px);
-}
-
-/* ============================= */
-/* CONTACT FORM */
-/* ============================= */
-.form {
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.form input,
-.form textarea {
-  padding: 18px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  font-size: 1.05rem;
-  outline: none;
-  background: var(--card-bg);
-  color: var(--text);
-  transition: 0.3s;
-}
-
-.form input:focus,
-.form textarea:focus {
-  border: 1px solid var(--btn-blue);
-}
-
-/* Contact note */
-.contact-note {
-  margin-top: 2rem;
-  font-size: 1.1rem;
-  color: var(--muted);
-}
-
-/* ============================= */
-/* FOOTER */
-/* ============================= */
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 2.5rem 25px;
-  text-align: center;
-  font-size: 1rem;
-  color: var(--muted);
-}
-
-/* ============================= */
-/* FADE IN ANIMATION */
-/* ============================= */
-.fade-in {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ============================= */
 /* APPLE STYLE PRODUCT PAGE */
 /* ============================= */
@@ -442,12 +214,19 @@ body.dark .navbar {
   box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
-.product-img {
+/* SLIDER */
+.slider {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slider img {
   width: 100%;
   height: 100%;
+  flex-shrink: 0;
   object-fit: cover;
-  display: block;
-  transition: 0.3s ease;
 }
 
 /* DOTS */
@@ -530,9 +309,7 @@ body.dark .navbar {
   text-decoration: underline;
 }
 
-/* ============================= */
 /* RESPONSIVE */
-/* ============================= */
 @media(max-width: 1100px) {
   .apple-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -554,19 +331,7 @@ body.dark .navbar {
 }
 
 @media(max-width: 650px) {
-  .hero-text h1 {
-    font-size: 2.7rem;
-  }
-
-  .section h2 {
-    font-size: 2.3rem;
-  }
-
   .nav-links {
     display: none;
-  }
-
-  .card-gallery img {
-    height: 140px;
   }
 }

@@ -131,57 +131,11 @@
     dotElement.classList.add("active");
   }
 </script>
-<script>
-  const images1 = [
-    "images/daily1-1.png",
-    "images/daily1-2.png",
-    "images/daily1-3.png"
-  ];
 
-  let currentIndex1 = 0;
-
-  const imgElement1 = document.getElementById("product1-img");
-  const slider1 = document.getElementById("slider1");
-  const dots1 = document.querySelectorAll("#dots1 .dot");
-
-  function updateSlider1(index) {
-    currentIndex1 = index;
-    imgElement1.src = images1[currentIndex1];
-
-    dots1.forEach(dot => dot.classList.remove("active"));
-    dots1[currentIndex1].classList.add("active");
-  }
-
-  let startX = 0;
-
-  slider1.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  slider1.addEventListener("touchend", (e) => {
-    let endX = e.changedTouches[0].clientX;
-    let diff = startX - endX;
-
-    if (diff > 50) {
-      // swipe left
-      let next = (currentIndex1 + 1) % images1.length;
-      updateSlider1(next);
-    } 
-    else if (diff < -50) {
-      // swipe right
-      let prev = (currentIndex1 - 1 + images1.length) % images1.length;
-      updateSlider1(prev);
-    }
-  });
-
-  // Click dots also
-  dots1.forEach((dot, i) => {
-    dot.addEventListener("click", () => updateSlider1(i));
-  });
-</script>
 
 </body>
 </html>
+
 
 
 

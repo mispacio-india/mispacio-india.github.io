@@ -91,12 +91,18 @@
     let modalIndex = 0;
     let zoomLevel = 1;
 
+    // -----------------------------
+    // UPDATE DOTS
+    // -----------------------------
     function updateDots(productNum) {
       const dots = document.querySelectorAll(`#dots${productNum} .dot`);
       dots.forEach(dot => dot.classList.remove("active"));
       dots[currentIndex[productNum]].classList.add("active");
     }
 
+    // -----------------------------
+    // SLIDE TO DOT CLICK
+    // -----------------------------
     function slideTo(productNum, index) {
       const slider = document.getElementById("slider" + productNum);
       currentIndex[productNum] = index;
@@ -148,42 +154,6 @@
     }
 
     // -----------------------------
-    // CLICK IMAGE TO OPEN MODAL
-    // -----------------------------
-    const imageWrap = document.querySelector(".apple-img-wrap");
-
-let tapStartX = 0;
-let tapStartY = 0;
-
-if (imageWrap) {
-
-  imageWrap.addEventListener("touchstart", (e) => {
-    tapStartX = e.touches[0].clientX;
-    tapStartY = e.touches[0].clientY;
-  });
-
-  imageWrap.addEventListener("touchend", (e) => {
-    let tapEndX = e.changedTouches[0].clientX;
-    let tapEndY = e.changedTouches[0].clientY;
-
-    let diffX = Math.abs(tapStartX - tapEndX);
-    let diffY = Math.abs(tapStartY - tapEndY);
-
-    // If finger moved very little = it's a tap
-    if (diffX < 10 && diffY < 10) {
-      openModal(currentIndex[1]);
-    }
-  });
-
-  // Desktop click
-  imageWrap.addEventListener("click", () => {
-    openModal(currentIndex[1]);
-  });
-
-}
-
-
-    // -----------------------------
     // MODAL IMAGE CLICK ZOOM
     // -----------------------------
     document.querySelectorAll(".modal-slider img").forEach(img => {
@@ -191,31 +161,51 @@ if (imageWrap) {
     });
 
     // -----------------------------
-    // SWIPE FEATURE (NORMAL SLIDER)
+    // MAIN SLIDER TAP + SWIPE FIX
+    // Tap = open modal
+    // Swipe = slide images
     // -----------------------------
     document.querySelectorAll(".swipe-area").forEach(area => {
       let startX = 0;
       let endX = 0;
+      let moved = false;
 
       const productNum = area.getAttribute("data-product");
       const slider = document.getElementById("slider" + productNum);
 
       area.addEventListener("touchstart", (e) => {
         startX = e.touches[0].clientX;
+        moved = false;
+      });
+
+      area.addEventListener("touchmove", (e) => {
+        endX = e.touches[0].clientX;
+        if (Math.abs(startX - endX) > 10) {
+          moved = true;
+        }
       });
 
       area.addEventListener("touchend", (e) => {
         endX = e.changedTouches[0].clientX;
-
         let diff = startX - endX;
 
+        // TAP (OPEN MODAL)
+        if (!moved) {
+          openModal(currentIndex[productNum]);
+          return;
+        }
+
+        // SWIPE LEFT
         if (diff > 50) {
           if (currentIndex[productNum] < 2) {
             currentIndex[productNum]++;
             slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
             updateDots(productNum);
           }
-        } else if (diff < -50) {
+        }
+
+        // SWIPE RIGHT
+        else if (diff < -50) {
           if (currentIndex[productNum] > 0) {
             currentIndex[productNum]--;
             slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
@@ -226,7 +216,7 @@ if (imageWrap) {
     });
 
     // -----------------------------
-    // SWIPE FEATURE (MODAL SLIDER)
+    // MODAL SLIDER SWIPE
     // -----------------------------
     const modalWrap = document.querySelector(".modal-slider-wrap");
     let modalStartX = 0;

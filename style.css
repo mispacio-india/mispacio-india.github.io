@@ -436,20 +436,25 @@ body.dark .navbar {
   border-radius: 35px;
   overflow: hidden;
   background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   box-shadow: 0 15px 35px rgba(0,0,0,0.08);
   touch-action: pan-y;
 }
+/* SLIDER */
+.slider {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.6s ease-in-out;
+}
 
-.product-img {
+/* SLIDER IMAGES */
+.slider img {
   width: 100%;
   height: 100%;
+  flex: 0 0 100%;
   object-fit: cover;
-  display: block;
-  transition: 0.3s ease;
 }
+
 
 /* DOTS */
 .apple-dots {
@@ -571,4 +576,5 @@ body.dark .navbar {
     height: 140px;
   }
 }
+
 

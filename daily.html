@@ -38,14 +38,20 @@
     <div class="apple-product">
 
   <div class="apple-img-wrap" id="slider1">
-    <img src="images/daily1-1.png" class="product-img" id="product1-img" alt="Daily Tote Bag">
+  <div class="slider-track" id="track1">
+    <img src="images/daily1-1.png" alt="Daily Tote Bag 1">
+    <img src="images/daily1-2.png" alt="Daily Tote Bag 2">
+    <img src="images/daily1-3.png" alt="Daily Tote Bag 3">
   </div>
+</div>
+
 
   <div class="apple-dots" id="dots1">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
+  <span class="dot active" onclick="goToSlide1(0)"></span>
+  <span class="dot" onclick="goToSlide1(1)"></span>
+  <span class="dot" onclick="goToSlide1(2)"></span>
+</div>
+
 
   <h3>Daily Tote Classic</h3>
   <p class="apple-desc">
@@ -177,9 +183,54 @@
     dot.addEventListener("click", () => updateSlider1(i));
   });
 </script>
+<script>
+  let currentIndex1 = 0;
+
+  function updateSlider(trackId, index) {
+    const track = document.getElementById(trackId);
+    const totalSlides = track.children.length;
+
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+
+    currentIndex1 = index;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    // update dots
+    const dots = document.querySelectorAll("#dots1 .dot");
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
+  }
+
+  // Dots click support
+  function goToSlide1(index) {
+    updateSlider("track1", index);
+  }
+
+  // Swipe support
+  const slider = document.getElementById("slider1");
+  let startX = 0;
+  let endX = 0;
+
+  slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+
+    if (startX - endX > 50) {
+      updateSlider("track1", currentIndex1 + 1); // swipe left
+    }
+    if (endX - startX > 50) {
+      updateSlider("track1", currentIndex1 - 1); // swipe right
+    }
+  });
+</script>
 
 </body>
 </html>
+
 
 
 

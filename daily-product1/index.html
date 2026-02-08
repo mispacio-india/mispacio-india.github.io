@@ -76,54 +76,151 @@
 
   <!-- SCRIPT -->
   <script>
-    let currentIndex = { 1: 0 };
+  let currentIndex = { 1: 0 };
+  let modalIndex = 0;
+  let zoomLevel = 1;
 
-    function updateDots(productNum) {
-      const dots = document.querySelectorAll(`#dots${productNum} .dot`);
-      dots.forEach(dot => dot.classList.remove("active"));
-      dots[currentIndex[productNum]].classList.add("active");
-    }
+  function updateDots(productNum) {
+    const dots = document.querySelectorAll(`#dots${productNum} .dot`);
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentIndex[productNum]].classList.add("active");
+  }
 
-    function slideTo(productNum, index) {
-      const slider = document.getElementById("slider" + productNum);
-      currentIndex[productNum] = index;
-      slider.style.transform = `translateX(-${index * 100}%)`;
-      updateDots(productNum);
-    }
+  function slideTo(productNum, index) {
+    const slider = document.getElementById("slider" + productNum);
+    currentIndex[productNum] = index;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    updateDots(productNum);
+  }
 
-    // Swipe Feature
-    document.querySelectorAll(".swipe-area").forEach(area => {
-      let startX = 0;
-      let endX = 0;
+  // -----------------------------
+  // MODAL OPEN / CLOSE
+  // -----------------------------
+  function openModal(index) {
+    modalIndex = index;
+    document.getElementById("imageModal").classList.add("active");
+    updateModalSlider();
+  }
 
-      const productNum = area.getAttribute("data-product");
-      const slider = document.getElementById("slider" + productNum);
+  function closeModal() {
+    document.getElementById("imageModal").classList.remove("active");
+    resetZoom();
+  }
 
-      area.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-      });
+  function updateModalSlider() {
+    const modalSlider = document.getElementById("modalSlider");
+    modalSlider.style.transform = `translateX(-${modalIndex * 100}%)`;
+    resetZoom();
+  }
 
-      area.addEventListener("touchend", (e) => {
-        endX = e.changedTouches[0].clientX;
-
-        let diff = startX - endX;
-
-        if (diff > 50) {
-          if (currentIndex[productNum] < 2) {
-            currentIndex[productNum]++;
-            slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
-            updateDots(productNum);
-          }
-        } else if (diff < -50) {
-          if (currentIndex[productNum] > 0) {
-            currentIndex[productNum]--;
-            slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
-            updateDots(productNum);
-          }
-        }
-      });
+  // -----------------------------
+  // ZOOM FUNCTIONS
+  // -----------------------------
+  function resetZoom() {
+    zoomLevel = 1;
+    document.querySelectorAll(".modal-slider img").forEach(img => {
+      img.style.transform = "scale(1)";
+      img.style.cursor = "zoom-in";
     });
-  </script>
+  }
+
+  function toggleZoom(img) {
+    if (zoomLevel === 1) {
+      zoomLevel = 2;
+      img.style.transform = "scale(2)";
+      img.style.cursor = "zoom-out";
+    } else {
+      zoomLevel = 1;
+      img.style.transform = "scale(1)";
+      img.style.cursor = "zoom-in";
+    }
+  }
+
+  // -----------------------------
+  // CLICK IMAGE TO OPEN MODAL
+  // -----------------------------
+  document.querySelectorAll("#slider1 img").forEach((img, index) => {
+    img.addEventListener("click", () => {
+      openModal(index);
+    });
+  });
+
+  // -----------------------------
+  // MODAL IMAGE CLICK ZOOM
+  // -----------------------------
+  document.querySelectorAll(".modal-slider img").forEach(img => {
+    img.addEventListener("click", () => toggleZoom(img));
+  });
+
+  // -----------------------------
+  // SWIPE FEATURE (NORMAL SLIDER)
+  // -----------------------------
+  document.querySelectorAll(".swipe-area").forEach(area => {
+    let startX = 0;
+    let endX = 0;
+
+    const productNum = area.getAttribute("data-product");
+    const slider = document.getElementById("slider" + productNum);
+
+    area.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    area.addEventListener("touchend", (e) => {
+      endX = e.changedTouches[0].clientX;
+
+      let diff = startX - endX;
+
+      if (diff > 50) {
+        if (currentIndex[productNum] < 2) {
+          currentIndex[productNum]++;
+          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+          updateDots(productNum);
+        }
+      } else if (diff < -50) {
+        if (currentIndex[productNum] > 0) {
+          currentIndex[productNum]--;
+          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+          updateDots(productNum);
+        }
+      }
+    });
+  });
+
+  // -----------------------------
+  // SWIPE FEATURE (MODAL SLIDER)
+  // -----------------------------
+  const modalWrap = document.querySelector(".modal-slider-wrap");
+  let modalStartX = 0;
+  let modalEndX = 0;
+
+  modalWrap.addEventListener("touchstart", (e) => {
+    modalStartX = e.touches[0].clientX;
+  });
+
+  modalWrap.addEventListener("touchend", (e) => {
+    modalEndX = e.changedTouches[0].clientX;
+
+    let diff = modalStartX - modalEndX;
+
+    if (diff > 50 && modalIndex < 2) {
+      modalIndex++;
+      updateModalSlider();
+    } 
+    else if (diff < -50 && modalIndex > 0) {
+      modalIndex--;
+      updateModalSlider();
+    }
+  });
+
+  // -----------------------------
+  // ESC CLOSE MODAL
+  // -----------------------------
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+</script>
+
 <!-- FULLSCREEN IMAGE VIEWER -->
 <div id="imageModal" class="image-modal">
   <span class="close-modal" onclick="closeModal()">✕</span>

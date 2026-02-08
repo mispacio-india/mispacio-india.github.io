@@ -139,11 +139,9 @@
   // -----------------------------
   // CLICK IMAGE TO OPEN MODAL
   // -----------------------------
-  document.querySelectorAll("#slider1 img").forEach((img, index) => {
-    img.addEventListener("click", () => {
-      openModal(index);
-    });
-  });
+  document.querySelector(".apple-img-wrap").addEventListener("click", () => {
+  openModal(currentIndex[1]);
+});
 
   // -----------------------------
   // MODAL IMAGE CLICK ZOOM

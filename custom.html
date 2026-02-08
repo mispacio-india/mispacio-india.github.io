@@ -36,15 +36,19 @@
 
       <!-- PRODUCT 1 -->
       <div class="apple-product">
-        <div class="apple-img-wrap">
-          <img src="images/custom1.png" class="product-img" alt="Custom Tote Bag 1">
+        <div class="apple-img-wrap swipe-area" data-product="1">
+          <div class="slider" id="slider1">
+          <img src="images/custom1-1.png" class="product-img" alt="Custom Tote Bag">
+          <img src="images/custom1-2.png" class="product-img" alt="Custom Tote Bag">
+          <img src="images/custom1-3.png" class="product-img" alt="Custom Tote Bag">
         </div>
 
-        <div class="apple-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+        <div class="apple-dots" id="dots1">
+          <span class="dot active" onclick="slideTo(1,0,this)"></span>
+          <span class="dot" onclick="slideTo(1,1,this)"></span>
+          <span class="dot" onclick="slideTo(1,2,this)"></span>
         </div>
+
 
         <h3>Custom Logo Tote</h3>
         <p class="apple-desc">
@@ -61,14 +65,18 @@
 
       <!-- PRODUCT 2 -->
       <div class="apple-product">
-        <div class="apple-img-wrap">
-          <img src="images/custom2.png" class="product-img" alt="Custom Tote Bag 2">
+        <div class="apple-img-wrap swipe-area" data-product="2">
+          <div class="slider" id="slider2">
+            <img src="images/custom2-1.png" class="product-img" alt="Custom Tote Bag">
+            <img src="images/custom2-2.png" class="product-img" alt="Custom Tote Bag">
+            <img src="images/custom2-3.png" class="product-img" alt="Custom Tote Bag">
+          </div>
         </div>
 
-        <div class="apple-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+        <div class="apple-dots" id="dots2">
+          <span class="dot active" onclick="slideTo(2,0,this)"></span>
+          <span class="dot" onclick="slideTo(2,1,this)"></span>
+          <span class="dot" onclick="slideTo(2,2,this)"></span>
         </div>
 
         <h3>Custom Artwork Tote</h3>
@@ -85,15 +93,19 @@
       </div>
 
       <!-- PRODUCT 3 -->
-      <div class="apple-product">
-        <div class="apple-img-wrap">
-          <img src="images/custom3.png" class="product-img" alt="Custom Tote Bag 3">
+     <div class="apple-product">
+        <div class="apple-img-wrap swipe-area" data-product="3">
+          <div class="slider" id="slider3">
+            <img src="images/custom3-1.png" class="product-img" alt="Custom Tote Bag">
+            <img src="images/custom3-2.png" class="product-img" alt="Custom Tote Bag">
+            <img src="images/custom3-3.png" class="product-img" alt="Custom Tote Bag">
+          </div>
         </div>
 
-        <div class="apple-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+        <div class="apple-dots" id="dots3">
+          <span class="dot active" onclick="slideTo(3,0,this)"></span>
+          <span class="dot" onclick="slideTo(3,1,this)"></span>
+          <span class="dot" onclick="slideTo(3,2,this)"></span>
         </div>
 
         <h3>Corporate Bulk Tote</h3>
@@ -114,3 +126,4 @@
 
 </body>
 </html>
+

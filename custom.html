@@ -123,7 +123,63 @@
 
     </div>
   </section>
+<script>
+  let currentIndex = {
+    1: 0,
+    2: 0,
+    3: 0
+  };
+
+  function updateDots(productNum) {
+    const dots = document.querySelectorAll(`#dots${productNum} .dot`);
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentIndex[productNum]].classList.add("active");
+  }
+
+  function slideTo(productNum, index) {
+    const slider = document.getElementById("slider" + productNum);
+    currentIndex[productNum] = index;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    updateDots(productNum);
+  }
+
+  // SWIPE FEATURE
+  document.querySelectorAll(".swipe-area").forEach(area => {
+    let startX = 0;
+    let endX = 0;
+
+    const productNum = area.getAttribute("data-product");
+    const slider = document.getElementById("slider" + productNum);
+
+    area.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    area.addEventListener("touchend", (e) => {
+      endX = e.changedTouches[0].clientX;
+
+      let diff = startX - endX;
+
+      if (diff > 50) {
+        // Swipe Left (Next)
+        if (currentIndex[productNum] < 2) {
+          currentIndex[productNum]++;
+          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+          updateDots(productNum);
+        }
+      } else if (diff < -50) {
+        // Swipe Right (Previous)
+        if (currentIndex[productNum] > 0) {
+          currentIndex[productNum]--;
+          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+          updateDots(productNum);
+        }
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
+
 

@@ -1337,6 +1337,10 @@ body.dark .navbar {
 .detail-buy-btn:hover {
   background: #005bb5;
 }
+.apple-img-wrap {
+  cursor: pointer;
+}
+
 
 
 

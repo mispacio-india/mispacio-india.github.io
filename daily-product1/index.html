@@ -26,7 +26,6 @@
 
   <!-- PRODUCT DETAILS SECTION -->
   <section class="product-detail-page">
-
     <div class="product-detail-card">
 
       <!-- IMAGE SLIDER -->
@@ -71,186 +70,166 @@
       <a href="#" class="detail-buy-btn">Buy Now</a>
 
     </div>
-
   </section>
-  <!-- FULLSCREEN IMAGE VIEWER -->
-<div id="imageModal" class="image-modal">
-  <span class="close-modal" onclick="closeModal()">✕</span>
 
-  <div class="modal-slider-wrap">
-    <div class="modal-slider" id="modalSlider">
-      <img src="../images/daily1-1.png" alt="Daily Tote">
-      <img src="../images/daily1-2.png" alt="Daily Tote">
-      <img src="../images/daily1-3.png" alt="Daily Tote">
+  <!-- FULLSCREEN IMAGE VIEWER -->
+  <div id="imageModal" class="image-modal">
+    <span class="close-modal" onclick="closeModal()">✕</span>
+
+    <div class="modal-slider-wrap">
+      <div class="modal-slider" id="modalSlider">
+        <img src="../images/daily1-1.png" alt="Daily Tote">
+        <img src="../images/daily1-2.png" alt="Daily Tote">
+        <img src="../images/daily1-3.png" alt="Daily Tote">
+      </div>
     </div>
   </div>
-</div>
-
 
   <!-- SCRIPT -->
   <script>
-  let currentIndex = { 1: 0 };
-  let modalIndex = 0;
-  let zoomLevel = 1;
+    let currentIndex = { 1: 0 };
+    let modalIndex = 0;
+    let zoomLevel = 1;
 
-  function updateDots(productNum) {
-    const dots = document.querySelectorAll(`#dots${productNum} .dot`);
-    dots.forEach(dot => dot.classList.remove("active"));
-    dots[currentIndex[productNum]].classList.add("active");
-  }
+    function updateDots(productNum) {
+      const dots = document.querySelectorAll(`#dots${productNum} .dot`);
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[currentIndex[productNum]].classList.add("active");
+    }
 
-  function slideTo(productNum, index) {
-    const slider = document.getElementById("slider" + productNum);
-    currentIndex[productNum] = index;
-    slider.style.transform = `translateX(-${index * 100}%)`;
-    updateDots(productNum);
-  }
+    function slideTo(productNum, index) {
+      const slider = document.getElementById("slider" + productNum);
+      currentIndex[productNum] = index;
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      updateDots(productNum);
+    }
 
-  // -----------------------------
-  // MODAL OPEN / CLOSE
-  // -----------------------------
-  function openModal(index) {
-    modalIndex = index;
-    document.getElementById("imageModal").classList.add("active");
-    updateModalSlider();
-  }
+    // -----------------------------
+    // MODAL OPEN / CLOSE
+    // -----------------------------
+    function openModal(index) {
+      modalIndex = index;
+      document.getElementById("imageModal").classList.add("active");
+      updateModalSlider();
+    }
 
-  function closeModal() {
-    document.getElementById("imageModal").classList.remove("active");
-    resetZoom();
-  }
+    function closeModal() {
+      document.getElementById("imageModal").classList.remove("active");
+      resetZoom();
+    }
 
-  function updateModalSlider() {
-    const modalSlider = document.getElementById("modalSlider");
-    modalSlider.style.transform = `translateX(-${modalIndex * 100}%)`;
-    resetZoom();
-  }
+    function updateModalSlider() {
+      const modalSlider = document.getElementById("modalSlider");
+      modalSlider.style.transform = `translateX(-${modalIndex * 100}%)`;
+      resetZoom();
+    }
 
-  // -----------------------------
-  // ZOOM FUNCTIONS
-  // -----------------------------
-  function resetZoom() {
-    zoomLevel = 1;
-    document.querySelectorAll(".modal-slider img").forEach(img => {
-      img.style.transform = "scale(1)";
-      img.style.cursor = "zoom-in";
-    });
-  }
-
-  function toggleZoom(img) {
-    if (zoomLevel === 1) {
-      zoomLevel = 2;
-      img.style.transform = "scale(2)";
-      img.style.cursor = "zoom-out";
-    } else {
+    // -----------------------------
+    // ZOOM FUNCTIONS
+    // -----------------------------
+    function resetZoom() {
       zoomLevel = 1;
-      img.style.transform = "scale(1)";
-      img.style.cursor = "zoom-in";
+      document.querySelectorAll(".modal-slider img").forEach(img => {
+        img.style.transform = "scale(1)";
+        img.style.cursor = "zoom-in";
+      });
     }
-  }
 
-  // -----------------------------
-  // CLICK IMAGE TO OPEN MODAL
-  // -----------------------------
-document.querySelector(".apple-img-wrap").addEventListener("click", () => {
-  openModal(currentIndex[1]);
-});
-
-
-  // -----------------------------
-  // MODAL IMAGE CLICK ZOOM
-  // -----------------------------
-  document.querySelectorAll(".modal-slider img").forEach(img => {
-    img.addEventListener("click", () => toggleZoom(img));
-  });
-
-  // -----------------------------
-  // SWIPE FEATURE (NORMAL SLIDER)
-  // -----------------------------
-  document.querySelectorAll(".swipe-area").forEach(area => {
-    let startX = 0;
-    let endX = 0;
-
-    const productNum = area.getAttribute("data-product");
-    const slider = document.getElementById("slider" + productNum);
-
-    area.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    area.addEventListener("touchend", (e) => {
-      endX = e.changedTouches[0].clientX;
-
-      let diff = startX - endX;
-
-      if (diff > 50) {
-        if (currentIndex[productNum] < 2) {
-          currentIndex[productNum]++;
-          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
-          updateDots(productNum);
-        }
-      } else if (diff < -50) {
-        if (currentIndex[productNum] > 0) {
-          currentIndex[productNum]--;
-          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
-          updateDots(productNum);
-        }
+    function toggleZoom(img) {
+      if (zoomLevel === 1) {
+        zoomLevel = 2;
+        img.style.transform = "scale(2)";
+        img.style.cursor = "zoom-out";
+      } else {
+        zoomLevel = 1;
+        img.style.transform = "scale(1)";
+        img.style.cursor = "zoom-in";
       }
+    }
+
+    // -----------------------------
+    // CLICK IMAGE TO OPEN MODAL
+    // -----------------------------
+    document.querySelector(".apple-img-wrap").addEventListener("click", () => {
+      openModal(currentIndex[1]);
     });
-  });
 
-  // -----------------------------
-  // SWIPE FEATURE (MODAL SLIDER)
-  // -----------------------------
-// SWIPE FEATURE (MODAL SLIDER)
-const modalWrap = document.querySelector(".modal-slider-wrap");
-let modalStartX = 0;
-let modalEndX = 0;
+    // -----------------------------
+    // MODAL IMAGE CLICK ZOOM
+    // -----------------------------
+    document.querySelectorAll(".modal-slider img").forEach(img => {
+      img.addEventListener("click", () => toggleZoom(img));
+    });
 
-if (modalWrap) {
-  modalWrap.addEventListener("touchstart", (e) => {
-    modalStartX = e.touches[0].clientX;
-  });
+    // -----------------------------
+    // SWIPE FEATURE (NORMAL SLIDER)
+    // -----------------------------
+    document.querySelectorAll(".swipe-area").forEach(area => {
+      let startX = 0;
+      let endX = 0;
 
-  modalWrap.addEventListener("touchend", (e) => {
-    modalEndX = e.changedTouches[0].clientX;
+      const productNum = area.getAttribute("data-product");
+      const slider = document.getElementById("slider" + productNum);
 
-    let diff = modalStartX - modalEndX;
+      area.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
 
-    if (diff > 50 && modalIndex < 2) {
-      modalIndex++;
-      updateModalSlider();
-    } else if (diff < -50 && modalIndex > 0) {
-      modalIndex--;
-      updateModalSlider();
+      area.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+
+        let diff = startX - endX;
+
+        if (diff > 50) {
+          if (currentIndex[productNum] < 2) {
+            currentIndex[productNum]++;
+            slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+            updateDots(productNum);
+          }
+        } else if (diff < -50) {
+          if (currentIndex[productNum] > 0) {
+            currentIndex[productNum]--;
+            slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+            updateDots(productNum);
+          }
+        }
+      });
+    });
+
+    // -----------------------------
+    // SWIPE FEATURE (MODAL SLIDER)
+    // -----------------------------
+    const modalWrap = document.querySelector(".modal-slider-wrap");
+    let modalStartX = 0;
+    let modalEndX = 0;
+
+    if (modalWrap) {
+      modalWrap.addEventListener("touchstart", (e) => {
+        modalStartX = e.touches[0].clientX;
+      });
+
+      modalWrap.addEventListener("touchend", (e) => {
+        modalEndX = e.changedTouches[0].clientX;
+
+        let diff = modalStartX - modalEndX;
+
+        if (diff > 50 && modalIndex < 2) {
+          modalIndex++;
+          updateModalSlider();
+        } else if (diff < -50 && modalIndex > 0) {
+          modalIndex--;
+          updateModalSlider();
+        }
+      });
     }
-  });
-}
 
-
-  modalWrap.addEventListener("touchend", (e) => {
-    modalEndX = e.changedTouches[0].clientX;
-
-    let diff = modalStartX - modalEndX;
-
-    if (diff > 50 && modalIndex < 2) {
-      modalIndex++;
-      updateModalSlider();
-    } 
-    else if (diff < -50 && modalIndex > 0) {
-      modalIndex--;
-      updateModalSlider();
-    }
-  });
-
-  // -----------------------------
-  // ESC CLOSE MODAL
-  // -----------------------------
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal();
-  });
-</script>
-
+    // -----------------------------
+    // ESC CLOSE MODAL
+    // -----------------------------
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
 
 </body>
 </html>

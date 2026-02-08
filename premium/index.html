@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mispacio | Premium Canvas</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body class="product-page-body">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="../images/logo.png" alt="Mispacio Logo" />
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE TITLE -->
+  <section class="page-header">
+    <h1>Premium Canvas Tote Bags</h1>
+    <p>Thick fabric, premium stitching, durable handles and premium finish.</p>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="apple-products">
+    <div class="apple-grid">
+
+      <!-- PRODUCT 1 -->
+      <div class="apple-product">
+        <div class="apple-img-wrap swipe-area" data-product="1">
+          <div class="slider" id="slider1">
+           <img src="../images/premium1-1.png" class="product-img" alt="Premium Tote Bag">
+           <img src="../images/premium1-2.png" class="product-img" alt="Premium Tote Bag">
+           <img src="../images/premium1-3.png" class="product-img" alt="Premium Tote Bag">
+          </div>
+        </div>
+
+        <div class="apple-dots" id="dots1">
+          <span class="dot active" onclick="slideTo(1,0,this)"></span>
+          <span class="dot" onclick="slideTo(1,1,this)"></span>
+          <span class="dot" onclick="slideTo(1,2,this)"></span>
+        </div>
+        
+        <h3>Premium Canvas Classic</h3>
+        <p class="apple-desc">
+          Heavy canvas tote built for long-term use with premium stitching.
+        </p>
+
+        <p class="apple-price">From ₹399</p>
+
+        <div class="apple-buttons">
+          <a href="#" class="btn-learn">Learn more</a>
+          <a href="#" class="btn-buy">Buy ›</a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 2 -->
+      <div class="apple-product">
+        <div class="apple-img-wrap swipe-area" data-product="2">
+          <div class="slider" id="slider2">
+            <img src="../images/premium2-1.png" class="product-img" alt="Premium Tote Bag">
+            <img src="../images/premium2-2.png" class="product-img" alt="Premium Tote Bag">
+            <img src="../images/premium2-3.png" class="product-img" alt="Premium Tote Bag">
+          </div>
+        </div>
+
+        <div class="apple-dots" id="dots2">
+          <span class="dot active" onclick="slideTo(2,0,this)"></span>
+          <span class="dot" onclick="slideTo(2,1,this)"></span>
+          <span class="dot" onclick="slideTo(2,2,this)"></span>
+        </div>
+        
+        <h3>Premium Canvas Large</h3>
+        <p class="apple-desc">
+          Extra spacious tote with strong straps and premium fabric finish.
+        </p>
+
+        <p class="apple-price">From ₹499</p>
+
+        <div class="apple-buttons">
+          <a href="#" class="btn-learn">Learn more</a>
+          <a href="#" class="btn-buy">Buy ›</a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 3 -->
+      <div class="apple-product">
+        <div class="apple-img-wrap swipe-area" data-product="3">
+          <div class="slider" id="slider3">
+            <img src="../images/premium3-1.png" class="product-img" alt="Premium Tote Bag">
+            <img src="../images/premium3-2.png" class="product-img" alt="Premium Tote Bag">
+            <img src="../images/premium3-3.png" class="product-img" alt="Premium Tote Bag">
+          </div>
+        </div>
+
+        <div class="apple-dots" id="dots3">
+          <span class="dot active" onclick="slideTo(3,0,this)"></span>
+          <span class="dot" onclick="slideTo(3,1,this)"></span>
+          <span class="dot" onclick="slideTo(3,2,this)"></span>
+        </div>
+
+        <h3>Premium Canvas Luxe</h3>
+        <p class="apple-desc">
+          Premium tote with stylish modern design, built for luxury everyday carry.
+        </p>
+
+        <p class="apple-price">From ₹599</p>
+
+        <div class="apple-buttons">
+          <a href="#" class="btn-learn">Learn more</a>
+          <a href="#" class="btn-buy">Buy ›</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <script>
+  let currentIndex = {
+    1: 0,
+    2: 0,
+    3: 0
+  };
+
+  function updateDots(productNum) {
+    const dots = document.querySelectorAll(`#dots${productNum} .dot`);
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentIndex[productNum]].classList.add("active");
+  }
+
+  function slideTo(productNum, index) {
+    const slider = document.getElementById("slider" + productNum);
+    currentIndex[productNum] = index;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    updateDots(productNum);
+  }
+
+  // SWIPE FEATURE
+  document.querySelectorAll(".swipe-area").forEach(area => {
+    let startX = 0;
+    let endX = 0;
+
+    const productNum = area.getAttribute("data-product");
+    const slider = document.getElementById("slider" + productNum);
+
+    area.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    area.addEventListener("touchend", (e) => {
+      endX = e.changedTouches[0].clientX;
+
+      let diff = startX - endX;
+
+      if (diff > 50) {
+        // Swipe Left (Next)
+        if (currentIndex[productNum] < 2) {
+          currentIndex[productNum]++;
+          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+          updateDots(productNum);
+        }
+      } else if (diff < -50) {
+        // Swipe Right (Previous)
+        if (currentIndex[productNum] > 0) {
+          currentIndex[productNum]--;
+          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+          updateDots(productNum);
+        }
+      }
+    });
+  });
+</script>
+
+
+</body>
+</html>
+

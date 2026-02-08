@@ -35,16 +35,20 @@
     <div class="apple-grid">
 
       <!-- PRODUCT 1 -->
-    <div class="apple-product">
-<div class="apple-img-wrap">
-  <img src="images/daily1-1.png" class="product-img" id="product1-img" alt="Daily Tote Bag">
-</div>
+      <div class="apple-product">
+        <div class="apple-img-wrap">
+          <div class="slider" id="slider1">
+            <img src="images/daily1-1.png" class="product-img" alt="Daily Tote Classic">
+            <img src="images/daily1-2.png" class="product-img" alt="Daily Tote Classic">
+            <img src="images/daily1-3.png" class="product-img" alt="Daily Tote Classic">
+          </div>
+        </div>
 
-<div class="apple-dots">
-  <span class="dot active" onclick="changeImage('product1-img','images/daily1-1.png', this)"></span>
-  <span class="dot" onclick="changeImage('product1-img','images/daily1-2.png', this)"></span>
-  <span class="dot" onclick="changeImage('product1-img','images/daily1-3.png', this)"></span>
-</div>
+        <div class="apple-dots">
+          <span class="dot active" onclick="slideTo(1,0,this)"></span>
+          <span class="dot" onclick="slideTo(1,1,this)"></span>
+          <span class="dot" onclick="slideTo(1,2,this)"></span>
+        </div>
 
         <h3>Daily Tote Classic</h3>
         <p class="apple-desc">
@@ -60,20 +64,24 @@
       </div>
 
       <!-- PRODUCT 2 -->
-       <div class="apple-product">
-<div class="apple-img-wrap">
-  <img src="images/daily2-1.png" class="product-img" id="product2-img" alt="Daily Tote Bag">
-</div>
+      <div class="apple-product">
+        <div class="apple-img-wrap">
+          <div class="slider" id="slider2">
+            <img src="images/daily2-1.png" class="product-img" alt="Daily Tote Large">
+            <img src="images/daily2-2.png" class="product-img" alt="Daily Tote Large">
+            <img src="images/daily2-3.png" class="product-img" alt="Daily Tote Large">
+          </div>
+        </div>
 
-<div class="apple-dots">
-  <span class="dot active" onclick="changeImage('product2-img','images/daily2-1.png', this)"></span>
-  <span class="dot" onclick="changeImage('product2-img','images/daily2-2.png', this)"></span>
-  <span class="dot" onclick="changeImage('product2-img','images/daily2-3.png', this)"></span>
-</div>
+        <div class="apple-dots">
+          <span class="dot active" onclick="slideTo(2,0,this)"></span>
+          <span class="dot" onclick="slideTo(2,1,this)"></span>
+          <span class="dot" onclick="slideTo(2,2,this)"></span>
+        </div>
 
         <h3>Daily Tote Large</h3>
         <p class="apple-desc">
-          More space. Same premium fabric. Perfect for travel and shopping.
+          Extra capacity with the same premium fabric. Ideal for travel and shopping.
         </p>
 
         <p class="apple-price">From ₹249</p>
@@ -86,15 +94,19 @@
 
       <!-- PRODUCT 3 -->
       <div class="apple-product">
-<div class="apple-img-wrap">
-  <img src="images/daily3-1.png" class="product-img" id="product3-img" alt="Daily Tote Bag">
-</div>
+        <div class="apple-img-wrap">
+          <div class="slider" id="slider3">
+            <img src="images/daily3-1.png" class="product-img" alt="Daily Tote Minimal">
+            <img src="images/daily3-2.png" class="product-img" alt="Daily Tote Minimal">
+            <img src="images/daily3-3.png" class="product-img" alt="Daily Tote Minimal">
+          </div>
+        </div>
 
-<div class="apple-dots">
-  <span class="dot active" onclick="changeImage('product3-img','images/daily3-1.png', this)"></span>
-  <span class="dot" onclick="changeImage('product3-img','images/daily3-2.png', this)"></span>
-  <span class="dot" onclick="changeImage('product3-img','images/daily3-3.png', this)"></span>
-</div>
+        <div class="apple-dots">
+          <span class="dot active" onclick="slideTo(3,0,this)"></span>
+          <span class="dot" onclick="slideTo(3,1,this)"></span>
+          <span class="dot" onclick="slideTo(3,2,this)"></span>
+        </div>
 
         <h3>Daily Tote Minimal</h3>
         <p class="apple-desc">
@@ -111,26 +123,18 @@
 
     </div>
   </section>
-<script>
-  function changeImage(imgId, newSrc, dotElement) {
-    const img = document.getElementById(imgId);
-    img.src = newSrc;
 
-    const dots = dotElement.parentElement.querySelectorAll(".dot");
-    dots.forEach(dot => dot.classList.remove("active"));
-    dotElement.classList.add("active");
-  }
-</script>
+  <!-- SLIDER SCRIPT -->
+  <script>
+    function slideTo(productNum, index, dotElement) {
+      const slider = document.getElementById("slider" + productNum);
+      slider.style.transform = `translateX(-${index * 100}%)`;
 
+      const dots = dotElement.parentElement.querySelectorAll(".dot");
+      dots.forEach(dot => dot.classList.remove("active"));
+      dotElement.classList.add("active");
+    }
+  </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-

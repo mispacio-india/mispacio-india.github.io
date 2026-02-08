@@ -440,6 +440,7 @@ body.dark .navbar {
   align-items: center;
   justify-content: center;
   box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  touch-action: pan-y;
 }
 
 .product-img {
@@ -570,3 +571,4 @@ body.dark .navbar {
     height: 140px;
   }
 }
+

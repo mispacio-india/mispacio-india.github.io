@@ -36,7 +36,7 @@
 
       <!-- PRODUCT 1 -->
       <div class="apple-product">
-        <div class="apple-img-wrap">
+        <div class="apple-img-wrap swipe-area" data-product="1">
           <div class="slider" id="slider1">
             <img src="images/daily1-1.png" class="product-img" alt="Daily Tote Classic">
             <img src="images/daily1-2.png" class="product-img" alt="Daily Tote Classic">
@@ -44,7 +44,7 @@
           </div>
         </div>
 
-        <div class="apple-dots">
+        <div class="apple-dots" id="dots1">
           <span class="dot active" onclick="slideTo(1,0,this)"></span>
           <span class="dot" onclick="slideTo(1,1,this)"></span>
           <span class="dot" onclick="slideTo(1,2,this)"></span>
@@ -65,7 +65,7 @@
 
       <!-- PRODUCT 2 -->
       <div class="apple-product">
-        <div class="apple-img-wrap">
+        <div class="apple-img-wrap swipe-area" data-product="2">
           <div class="slider" id="slider2">
             <img src="images/daily2-1.png" class="product-img" alt="Daily Tote Large">
             <img src="images/daily2-2.png" class="product-img" alt="Daily Tote Large">
@@ -73,7 +73,7 @@
           </div>
         </div>
 
-        <div class="apple-dots">
+        <div class="apple-dots" id="dots2">
           <span class="dot active" onclick="slideTo(2,0,this)"></span>
           <span class="dot" onclick="slideTo(2,1,this)"></span>
           <span class="dot" onclick="slideTo(2,2,this)"></span>
@@ -94,7 +94,7 @@
 
       <!-- PRODUCT 3 -->
       <div class="apple-product">
-        <div class="apple-img-wrap">
+        <div class="apple-img-wrap swipe-area" data-product="3">
           <div class="slider" id="slider3">
             <img src="images/daily3-1.png" class="product-img" alt="Daily Tote Minimal">
             <img src="images/daily3-2.png" class="product-img" alt="Daily Tote Minimal">
@@ -102,7 +102,7 @@
           </div>
         </div>
 
-        <div class="apple-dots">
+        <div class="apple-dots" id="dots3">
           <span class="dot active" onclick="slideTo(3,0,this)"></span>
           <span class="dot" onclick="slideTo(3,1,this)"></span>
           <span class="dot" onclick="slideTo(3,2,this)"></span>
@@ -124,16 +124,63 @@
     </div>
   </section>
 
-  <!-- SLIDER SCRIPT -->
+  <!-- SLIDER + SWIPE SCRIPT -->
   <script>
+    let currentIndex = {
+      1: 0,
+      2: 0,
+      3: 0
+    };
+
+    function updateDots(productNum) {
+      const dots = document.querySelectorAll(`#dots${productNum} .dot`);
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[currentIndex[productNum]].classList.add("active");
+    }
+
     function slideTo(productNum, index, dotElement) {
       const slider = document.getElementById("slider" + productNum);
+      currentIndex[productNum] = index;
       slider.style.transform = `translateX(-${index * 100}%)`;
 
-      const dots = dotElement.parentElement.querySelectorAll(".dot");
-      dots.forEach(dot => dot.classList.remove("active"));
-      dotElement.classList.add("active");
+      updateDots(productNum);
     }
+
+    // SWIPE FEATURE
+    document.querySelectorAll(".swipe-area").forEach(area => {
+      let startX = 0;
+      let endX = 0;
+
+      const productNum = area.getAttribute("data-product");
+      const slider = document.getElementById("slider" + productNum);
+
+      area.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
+
+      area.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+
+        let diff = startX - endX;
+
+        // Swipe threshold
+        if (diff > 50) {
+          // Swipe Left (Next)
+          if (currentIndex[productNum] < 2) {
+            currentIndex[productNum]++;
+            slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+            updateDots(productNum);
+          }
+        } else if (diff < -50) {
+          // Swipe Right (Previous)
+          if (currentIndex[productNum] > 0) {
+            currentIndex[productNum]--;
+            slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+            updateDots(productNum);
+          }
+        }
+      });
+    });
   </script>
 
 </body>

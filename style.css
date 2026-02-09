@@ -62,6 +62,11 @@ body.dark .navbar {
   justify-content: space-between;
   align-items: center;
 }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
 
 .logo img {
   height: 38px;
@@ -733,5 +738,6 @@ body.dark .theme-btn {
 .feature:hover {
   transform: translateY(-8px);
 }
+
 
 

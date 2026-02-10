@@ -4,7 +4,7 @@
     "price": "₹199",
     "description": "Perfect for groceries, books, office items, and everyday carry.",
     "specs": "Eco-friendly, reusable, lightweight, durable stitching, strong handles, daily use tote bag",
-    "image": "images/daily1.png"
+    "image": "images/daily1.png",
     "link": "daily/"
   },
   {
@@ -12,7 +12,7 @@
     "price": "₹299",
     "description": "Thick fabric, strong stitching, long-lasting quality and comfort.",
     "specs": "Premium canvas, heavy duty, strong strap, stylish minimal design, durable fabric tote bag",
-    "image": "images/premium1.png"
+    "image": "images/premium1.png",
     "link": "premium/"
   },
   {
@@ -20,7 +20,7 @@
     "price": "Starts ₹399",
     "description": "Branding, gifting, corporate bulk orders and personalized designs.",
     "specs": "Custom printing, logo tote, bulk orders, corporate gifting, personalized tote bags, event bags",
-    "image": "images/custom1.png"
+    "image": "images/custom1.png",
     "link": "printed/"
   },
   {

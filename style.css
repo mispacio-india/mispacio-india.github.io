@@ -741,6 +741,42 @@ body.dark .theme-btn {
   transform: translateY(-8px);
 }
 
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-box input {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  width: 200px;
+  transition: 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: black;
+}
+
+.search-box button {
+  background: black;
+  color: white;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.search-box button:hover {
+  transform: scale(1.05);
+}
+
 
 
 

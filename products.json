@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Daily Essentials Tote",
+    "price": "₹199",
+    "description": "Perfect for groceries, books, office items, and everyday carry.",
+    "specs": "Eco-friendly, reusable, lightweight, durable stitching, strong handles, daily use tote bag",
+    "link": "daily/"
+  },
+  {
+    "name": "Premium Canvas Tote",
+    "price": "₹299",
+    "description": "Thick fabric, strong stitching, long-lasting quality and comfort.",
+    "specs": "Premium canvas, heavy duty, strong strap, stylish minimal design, durable fabric tote bag",
+    "link": "premium/"
+  },
+  {
+    "name": "Custom Printed Tote",
+    "price": "Starts ₹399",
+    "description": "Branding, gifting, corporate bulk orders and personalized designs.",
+    "specs": "Custom printing, logo tote, bulk orders, corporate gifting, personalized tote bags, event bags",
+    "link": "printed/"
+  }
+]

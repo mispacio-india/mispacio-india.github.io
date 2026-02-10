@@ -67,18 +67,24 @@
         return;
       }
 
-      filtered.forEach(product => {
-        resultsDiv.innerHTML += `
-          <a href="${product.link}" class="card card-link">
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <p class="price">${product.price}</p>
-            <p style="font-size:13px; opacity:0.7;">${product.specs}</p>
-            <span class="btn primary buy-btn">View Product</span>
-          </a>
-        `;
-      });
-    }
+   filtered.forEach(product => {
+  resultsDiv.innerHTML += `
+    <a href="${product.link}" class="card card-link">
+      
+      <div class="search-img">
+        <img src="${product.image}" alt="${product.name}">
+      </div>
+
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <p class="price">${product.price}</p>
+      <p class="search-specs">${product.specs}</p>
+
+      <span class="btn primary buy-btn">View Product</span>
+    </a>
+  `;
+});
+
 
     loadProducts();
 

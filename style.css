@@ -777,6 +777,20 @@ body.dark .theme-btn {
   transform: scale(1.05);
 }
 
+.search-img {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.search-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 
 

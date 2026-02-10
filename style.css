@@ -86,7 +86,6 @@ body.dark .navbar {
 
 .nav-links a:hover {
   opacity: 1;
-}
 /* ============================= */
 /* THEME BUTTON */
 /* ============================= */
@@ -741,6 +740,7 @@ body.dark .theme-btn {
 .feature:hover {
   transform: translateY(-8px);
 }
+
 
 
 

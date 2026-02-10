@@ -41,73 +41,74 @@
     </div>
   </section>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const query = params.get("q")?.toLowerCase().trim() || "";
+ <script>
+  const params = new URLSearchParams(window.location.search);
+  const query = params.get("q")?.toLowerCase().trim() || "";
 
-    const resultsDiv = document.getElementById("results");
-    const searchText = document.getElementById("searchText");
+  const resultsDiv = document.getElementById("results");
+  const searchText = document.getElementById("searchText");
 
-    searchText.textContent = query
-      ? `Showing results for: "${query}"`
-      : "No search keyword entered.";
+  searchText.textContent = query
+    ? `Showing results for: "${query}"`
+    : "No search keyword entered.";
 
-    async function loadProducts() {
-      const response = await fetch("products.json");
-      const products = await response.json();
+  async function loadProducts() {
+    const response = await fetch("products.json");
+    const products = await response.json();
 
-      const filtered = products.filter(product => {
-        return (
-          product.name.toLowerCase().includes(query) ||
-          product.description.toLowerCase().includes(query) ||
-          product.specs.toLowerCase().includes(query) ||
-          product.price.toLowerCase().includes(query)
-        );
-      });
-
-      if (filtered.length === 0) {
-        resultsDiv.innerHTML = `<p style="text-align:center;">No products found.</p>`;
-        return;
-      }
-
-   filtered.forEach(product => {
-  resultsDiv.innerHTML += `
-    <a href="${product.link}" class="card card-link">
-      
-      <div class="search-img">
-        <img src="${product.image}" alt="${product.name}">
-      </div>
-
-      <h3>${product.name}</h3>
-      <p>${product.description}</p>
-      <p class="price">${product.price}</p>
-      <p class="search-specs">${product.specs}</p>
-
-      <span class="btn primary buy-btn">View Product</span>
-    </a>
-  `;
-});
-
-
-    loadProducts();
-
-    // Search again
-    const searchInput = document.getElementById("searchInput");
-    const searchBtn = document.getElementById("searchBtn");
-
-    searchInput.value = query;
-
-    searchBtn.addEventListener("click", () => {
-      let newQuery = searchInput.value.trim();
-      if (newQuery === "") return;
-
-      window.location.href = `search.html?q=${encodeURIComponent(newQuery)}`;
+    const filtered = products.filter(product => {
+      return (
+        product.name.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query) ||
+        product.specs.toLowerCase().includes(query) ||
+        product.price.toLowerCase().includes(query)
+      );
     });
 
-    searchInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") searchBtn.click();
+    if (filtered.length === 0) {
+      resultsDiv.innerHTML = `<p style="text-align:center;">No products found.</p>`;
+      return;
+    }
+
+    filtered.forEach(product => {
+      resultsDiv.innerHTML += `
+        <a href="${product.link}" class="card card-link">
+          
+          <div class="search-img">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
+
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <p class="price">${product.price}</p>
+          <p class="search-specs">${product.specs}</p>
+
+          <span class="btn primary buy-btn">View Product</span>
+        </a>
+      `;
     });
-  </script>
+  }
+
+  loadProducts();
+
+  // Search again
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+
+  searchInput.value = query;
+
+  searchBtn.addEventListener("click", () => {
+    let newQuery = searchInput.value.trim();
+    if (newQuery === "") return;
+
+    window.location.href = `search.html?q=${encodeURIComponent(newQuery)}`;
+  });
+
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") searchBtn.click();
+  });
+</script>
+
 
 </body>
 </html>

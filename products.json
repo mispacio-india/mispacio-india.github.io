@@ -4,6 +4,7 @@
     "price": "₹199",
     "description": "Perfect for groceries, books, office items, and everyday carry.",
     "specs": "Eco-friendly, reusable, lightweight, durable stitching, strong handles, daily use tote bag",
+    "image": "images/daily1.png"
     "link": "daily/"
   },
   {
@@ -11,6 +12,7 @@
     "price": "₹299",
     "description": "Thick fabric, strong stitching, long-lasting quality and comfort.",
     "specs": "Premium canvas, heavy duty, strong strap, stylish minimal design, durable fabric tote bag",
+    "image": "images/premium1.png"
     "link": "premium/"
   },
   {
@@ -18,6 +20,48 @@
     "price": "Starts ₹399",
     "description": "Branding, gifting, corporate bulk orders and personalized designs.",
     "specs": "Custom printing, logo tote, bulk orders, corporate gifting, personalized tote bags, event bags",
+    "image": "images/custom1.png"
     "link": "printed/"
+  },
+  {
+    "name": "Daily Tote Bag - Classic",
+    "price": "₹249",
+    "description": "Lightweight tote bag for daily use",
+    "specs": "Small size, eco friendly, cotton, zipper, everyday, blue",
+    "image": "images/daily1-1.png",
+    "link": "daily-product1/"
+  },
+{
+    "name": "Daily Tote Bag - Large",
+    "price": "₹249",
+    "description": "Lightweight tote bag for daily use",
+    "specs": "Small size, eco friendly, cotton, zipper, jute, black",
+    "image": "images/daily2-1.png",
+    "link": "daily-product2/"
+  },
+{
+    "name": "Daily Tote Bag - Minimal",
+    "price": "₹299",
+    "description": "Lightweight tote bag for daily use",
+    "specs": "Small size, eco friendly, cotton, zipper, jute, white",
+    "image": "images/daily3-1.png",
+    "link": "daily-product3/"
+  },
+  {
+    "name": "Daily Tote Bag - Supreme",
+    "price": "₹399",
+    "description": "Lightweight tote bag for daily use",
+    "specs": "Small size, eco friendly, cotton, zipper",
+    "image": "images/daily4-1.png",
+    "link": "daily-product/daily-product4/"
+  },
+  
+  {
+    "name": "Premium Tote Bag - Large",
+    "price": "₹399",
+    "description": "Premium canvas tote bag with thick straps",
+    "specs": "Canvas, heavy duty, strong handle",
+    "image": "images/premium1.png",
+    "link": "premium/premium-product5.html"
   }
 ]

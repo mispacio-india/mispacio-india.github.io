@@ -70,9 +70,10 @@
       return;
     }
 
-    filtered.forEach(product => {
-      resultsDiv.innerHTML += `
-        <a href="${product.link}" class="card card-link">
+filtered.forEach((product, index) => {
+  resultsDiv.innerHTML += `
+    <a href="${product.link}" class="card card-link search-result" style="animation-delay:${index * 0.1}s;">
+
           
           <div class="search-img">
             <img src="${product.image}" alt="${product.name}">

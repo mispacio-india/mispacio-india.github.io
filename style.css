@@ -464,20 +464,6 @@ body.dark .theme-btn {
 .dot.active {
   background: #000;
 }
-#dots3 {
-  display: flex !important;
-  justify-content: center !important;
-  gap: 10px !important;
-  overflow: visible !important;
-  width: 100% !important;
-}
-
-#dots3 .dot {
-  width: 10px !important;
-  height: 10px !important;
-}
-
-
 
 /* TEXT */
 .apple-product h3 {
@@ -835,6 +821,7 @@ body.dark .theme-btn {
     transform: translateY(0);
   }
 }
+
 
 
 

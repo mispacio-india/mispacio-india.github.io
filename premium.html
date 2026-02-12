@@ -132,18 +132,22 @@
     3: 0
   };
 
-  function updateDots(productNum) {
-    const dots = document.querySelectorAll(`#dots${productNum} .dot`);
-    dots.forEach(dot => dot.classList.remove("active"));
+function updateDots(productNum) {
+  const dots = document.querySelectorAll(`#dots${productNum} .dot`);
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  if (dots[currentIndex[productNum]]) {
     dots[currentIndex[productNum]].classList.add("active");
   }
+}
 
-  function slideTo(productNum, index) {
-    const slider = document.getElementById("slider" + productNum);
-    currentIndex[productNum] = index;
-    slider.style.transform = `translateX(-${index * 100}%)`;
-    updateDots(productNum);
-  }
+function slideTo(productNum, index) {
+  const slider = document.getElementById("slider" + productNum);
+  currentIndex[productNum] = index;
+  slider.style.transform = `translateX(-${index * 100}%)`;
+  updateDots(productNum);
+}
+
 
 // SWIPE FEATURE
 document.querySelectorAll(".swipe-area").forEach(area => {
@@ -188,6 +192,7 @@ document.querySelectorAll(".swipe-area").forEach(area => {
 
 </body>
 </html>
+
 
 
 

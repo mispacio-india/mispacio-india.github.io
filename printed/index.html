@@ -236,11 +236,12 @@
     </div>
   </section>
 <script>
-  let currentIndex = {
-    1: 0,
-    2: 0,
-    3: 0
-  };
+let currentIndex = {};
+
+document.querySelectorAll(".swipe-area").forEach(area => {
+  const productNum = area.getAttribute("data-product");
+  currentIndex[productNum] = 0;
+});
 
   function updateDots(productNum) {
     const dots = document.querySelectorAll(`#dots${productNum} .dot`);

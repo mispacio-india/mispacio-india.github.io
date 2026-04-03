@@ -236,6 +236,9 @@
     </div>
   </section>
 <script>
+/* -----------------------------
+   AUTO INITIALIZE ALL PRODUCTS
+----------------------------- */
 let currentIndex = {};
 
 document.querySelectorAll(".swipe-area").forEach(area => {
@@ -243,55 +246,77 @@ document.querySelectorAll(".swipe-area").forEach(area => {
   currentIndex[productNum] = 0;
 });
 
-  function updateDots(productNum) {
-    const dots = document.querySelectorAll(`#dots${productNum} .dot`);
-    dots.forEach(dot => dot.classList.remove("active"));
+/* -----------------------------
+   UPDATE DOTS
+----------------------------- */
+function updateDots(productNum) {
+  const dots = document.querySelectorAll(`#dots${productNum} .dot`);
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  if (dots[currentIndex[productNum]]) {
     dots[currentIndex[productNum]].classList.add("active");
   }
+}
 
-  function slideTo(productNum, index) {
-    const slider = document.getElementById("slider" + productNum);
+/* -----------------------------
+   DOT CLICK SLIDE
+----------------------------- */
+function slideTo(productNum, index) {
+  const slider = document.getElementById("slider" + productNum);
+
+  if (!slider) return;
+
+  const totalSlides = slider.children.length;
+
+  if (index >= 0 && index < totalSlides) {
     currentIndex[productNum] = index;
     slider.style.transform = `translateX(-${index * 100}%)`;
     updateDots(productNum);
   }
+}
 
-  // SWIPE FEATURE
-  document.querySelectorAll(".swipe-area").forEach(area => {
-    let startX = 0;
-    let endX = 0;
+/* -----------------------------
+   SWIPE FUNCTION
+----------------------------- */
+document.querySelectorAll(".swipe-area").forEach(area => {
+  let startX = 0;
+  let endX = 0;
 
-    const productNum = area.getAttribute("data-product");
-    const slider = document.getElementById("slider" + productNum);
+  const productNum = area.getAttribute("data-product");
+  const slider = document.getElementById("slider" + productNum);
 
-    area.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
+  if (!slider) return;
 
-    area.addEventListener("touchend", (e) => {
-      endX = e.changedTouches[0].clientX;
-
-      let diff = startX - endX;
-
-      if (diff > 50) {
-        // Swipe Left (Next)
-        if (currentIndex[productNum] < 2) {
-          currentIndex[productNum]++;
-          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
-          updateDots(productNum);
-        }
-      } else if (diff < -50) {
-        // Swipe Right (Previous)
-        if (currentIndex[productNum] > 0) {
-          currentIndex[productNum]--;
-          slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
-          updateDots(productNum);
-        }
-      }
-    });
+  area.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
   });
-</script>
 
+  area.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+
+    let diff = startX - endX;
+    const totalSlides = slider.children.length;
+
+    // Swipe Left (Next)
+    if (diff > 50) {
+      if (currentIndex[productNum] < totalSlides - 1) {
+        currentIndex[productNum]++;
+        slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+        updateDots(productNum);
+      }
+    }
+
+    // Swipe Right (Previous)
+    else if (diff < -50) {
+      if (currentIndex[productNum] > 0) {
+        currentIndex[productNum]--;
+        slider.style.transform = `translateX(-${currentIndex[productNum] * 100}%)`;
+        updateDots(productNum);
+      }
+    }
+  });
+});
+</script>
 </body>
 </html>
 
